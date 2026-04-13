@@ -297,20 +297,60 @@
         </div>
     </section>
     <!-- 5. FOOTER -->
-    <footer class="bg-[#0a0a0a] py-20 px-10 md:px-24 border-t border-white/5">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-            <div>
-                <h4 class="font-headline text-4xl text-white tracking-wider mb-2">REBOQUES PRIME</h4>
-                <p class="text-stone-700 font-body text-sm uppercase tracking-widest">© 2026 Reboques Prime.</p>
+    <footer class="bg-[#0a0a0a] py-24 px-10 md:px-24 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+            <!-- Coluna 1: Marca -->
+            <div class="space-y-6">
+                <h4 class="font-headline text-4xl text-white tracking-wider uppercase">REBOQUES <span
+                        class="text-secondary">PRIME</span></h4>
+                <p class="text-stone-500 font-body text-sm leading-relaxed uppercase tracking-tighter">
+                    Especialistas em carretinhas artesanais de alto padrão para motociclistas exigentes. Qualidade e
+                    robustez em cada detalhe.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-12 h-12 border border-white/10 flex items-center justify-center hover:bg-secondary transition-all hover:scale-110"
+                        href="https://wa.me/5598991557039" target="_blank">
+                        <span class="material-symbols-outlined text-white opacity-70">chat</span>
+                    </a>
+                </div>
             </div>
-            <div class="flex flex-col gap-1">
-                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Localização</span>
-                <p class="text-stone-400 font-body">Bacabeira, MA - Brasil</p>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="space-y-6">
+                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Navegação</span>
+                <ul class="space-y-4 font-body text-sm text-stone-400 uppercase tracking-widest">
+                    <li><a class="hover:text-secondary transition-colors" href="#">Início</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#galeria">Galeria</a></li>
+                    <li><a class="hover:text-secondary transition-colors"
+                            href="https://wa.me/5598991557039">Solicitar Orçamento</a></li>
+                </ul>
             </div>
-            <div class="flex flex-col gap-1">
-                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Contato</span>
-                <p class="text-stone-400 font-body">(98) 99155-7039</p>
+
+            <!-- Coluna 3: Contatos -->
+            <div class="space-y-6">
+                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Contato Direto</span>
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined text-secondary text-3xl">phone_iphone</span>
+                    <div>
+                        <p class="text-white font-headline text-2xl tracking-tighter">(98) 99155-7039</p>
+                        <p class="text-stone-600 text-[10px] uppercase font-bold tracking-widest">WhatsApp / Celular</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined text-secondary text-3xl">location_on</span>
+                    <div>
+                        <p class="text-stone-400 font-body text-sm">Bacabeira, Maranhão — Brasil</p>
+                        <p class="text-stone-600 text-[10px] uppercase font-bold tracking-widest">Atendimento Regional</p>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-stone-700 uppercase tracking-[0.3em]">
+            <p>© 2026 REBOQUES PRIME. TODOS OS DIREITOS RESERVADOS.</p>
+            <p class="flex items-center gap-2">ARTESANALMENTE FEITO NO MARANHÃO <span
+                    class="material-symbols-outlined text-[10px]">favorite</span></p>
         </div>
     </footer>
     <!-- WhatsApp Floating Action -->
