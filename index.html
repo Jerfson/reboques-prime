@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>REBOQUES PRIME - Reboque Artesanal para Moto</title>
 
-    <meta name="description" content="Caretinhas artesanais exclusivas para motos. Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg. Feitas à mão em Bacabeira, Maranhão." />
+    <meta name="description" content="Caretinhas artesanais exclusivas para motos. Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg de capacidade. Feitas à mão em Bacabeira, Maranhão." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://reboquesprime.com.br/" />
     <meta property="og:type" content="website" />
@@ -13,6 +13,7 @@
     <meta property="og:description" content="Perfil U 2&quot; x 1/8 · Madeira Tatajuba · 350 kg. Artesanal, exclusivo para motos." />
     <meta property="og:image" content="assets/img/hero.jpg" />
     <meta property="og:url" content="https://reboquesprime.com.br/" />
+    <meta property="og:locale" content="pt_BR" />
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"LocalBusiness","name":"Reboques Prime","telephone":"+55-98-99155-7039","address":{"@type":"PostalAddress","addressLocality":"Bacabeira","addressRegion":"MA","addressCountry":"BR"},"priceRange":"R$ 3.500,00"}
     </script>
@@ -23,783 +24,593 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <style>
-        /* ── RESET & BASE ─────────────────────────── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+        /* ── TOKENS ───────────────────────────────── */
         :root {
-            --forge:    #ac3300;
-            --forge-hi: #d4450c;
-            --paper:    #f2ede4;
             --ink:      #131210;
-            --ink-soft: #5a4139;
+            --ink-soft: #4a4642;
             --ink-mute: #9a9490;
+            --paper:    #f2ede4;
+            --paper-hi: #faf7f2;
             --rule:     #d8d2c8;
+            --forge:    #ac3300;   /* laranja ferrugem — usado com parcimônia */
+            --forge-hi: #d4450c;
         }
 
         html { scroll-behavior: smooth; }
-        body { font-family: "Barlow", sans-serif; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: "Barlow", sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
         .font-hl { font-family: "Bebas Neue", sans-serif; }
         .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24; }
 
-        /* ── SEÇÕES ───────────────────────────────── */
-        /* Hero, specs e galeria têm altura fixa para que flex:1 funcione */
-        .fs-section {
-            min-height: 100vh;
+        /* Grain sutil */
+        .grain {
+            pointer-events: none; position: fixed; inset: 0; z-index: 50; opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat; background-size: 128px;
+        }
+
+        /* ── REGRA HORIZONTAL DE SEÇÃO ── */
+        .section-rule {
+            width: 100%; height: 1px;
+            background: var(--rule);
+        }
+
+        /* ── HERO ─────────────────────────────────── */
+        .hero-wrap {
             position: relative;
-            overflow: hidden;
+            min-height: 100vh;
+            background: var(--ink);
             display: flex;
             flex-direction: column;
-        }
-        #s-specs,
-        #s-galeria { height: 100vh; }
-
-        /* ── GRAIN ───────────────────────────────── */
-        .grain {
-            pointer-events: none; position: fixed; inset: 0; z-index: 200; opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 128px;
+            justify-content: flex-end;
+            overflow: hidden;
         }
 
-        /* ── NAV DOTS ────────────────────────────── */
-        .nav-dots {
-            position: fixed; right: 2rem; top: 50%;
-            transform: translateY(-50%); z-index: 100;
-            display: flex; flex-direction: column; gap: 0.75rem;
-        }
-        .nav-dot {
-            width: 6px; height: 6px; border-radius: 0;
-            background: rgba(255,255,255,0.2); border: none;
-            cursor: pointer; transition: all 0.3s ease; padding: 0;
-            transform: rotate(45deg);
-        }
-        .nav-dot:hover  { background: rgba(255,255,255,0.5); transform: rotate(45deg) scale(1.4); }
-        .nav-dot.active { background: var(--forge-hi);       transform: rotate(45deg) scale(1.5); }
-
-        .dots-dark .nav-dot        { background: rgba(0,0,0,0.15); }
-        .dots-dark .nav-dot:hover  { background: rgba(0,0,0,0.4); }
-        .dots-dark .nav-dot.active { background: var(--forge); }
-
-        /* ── HUD INFERIOR ────────────────────────── */
-        .hud-bottom {
-            position: fixed; bottom: 2rem; left: 0; right: 0;
-            z-index: 100; display: flex; justify-content: space-between;
-            align-items: flex-end; padding: 0 2rem; pointer-events: none;
-        }
-        .hud-label, .hud-counter {
-            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
-            letter-spacing: 0.45em; text-transform: uppercase; transition: color 0.4s;
-        }
-        .hud-label   { color: rgba(255,255,255,0.25); }
-        .hud-counter { color: rgba(255,255,255,0.2);  }
-        .hud-label.dark-text, .hud-counter.dark-text { color: rgba(0,0,0,0.2); }
-
-        /* ── SCROLL HINT ─────────────────────────── */
-        .scroll-hint {
-            position: absolute; bottom: 2rem; left: 50%;
-            transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
-            animation: bounceDown 2s infinite; opacity: 0.35;
-        }
-        .scroll-hint span { font-family: "Bebas Neue", sans-serif; font-size: 0.55rem; letter-spacing: 0.4em; color: #fff; }
-        @keyframes bounceDown {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50%       { transform: translateX(-50%) translateY(6px); }
-        }
-
-        /* ── SCROLL REVEAL ───────────────────────── */
-        .reveal {
-            opacity: 0; transform: translateY(24px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .reveal.visible { opacity: 1; transform: none; }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-
-        /* ══════════════════════════════════════════
-           S1 — HERO
-        ══════════════════════════════════════════ */
-        #s-hero { background: var(--ink); }
-
-        .hero-bg-img {
+        .hero-bg {
             position: absolute; inset: 0;
-            background: url('assets/img/hero.jpg') center/cover no-repeat;
-            opacity: 0.18; filter: grayscale(60%);
+            background-image: url('assets/img/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;           /* muito sutil — imagem vira textura */
+            filter: grayscale(100%);
         }
 
-        .hero-inner {
+        .hero-content {
             position: relative; z-index: 1;
-            padding: 5vh 5vw; height: 100%;
-            display: flex; flex-direction: column; justify-content: center;
+            padding: 3rem 2.5rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .hero-content { padding: 4rem 5rem 5rem; }
         }
 
-        .hero-eyebrow {
-            font-family: "Bebas Neue", sans-serif; font-size: 0.7rem;
-            letter-spacing: 0.5em; color: var(--forge-hi);
-            text-transform: uppercase; margin-bottom: 1.5rem;
+        /* Número decorativo de fundo */
+        .hero-bg-num {
+            position: absolute;
+            right: -0.5rem;
+            bottom: -1rem;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(12rem, 30vw, 28rem);
+            line-height: 1;
+            color: rgba(255,255,255,0.03);
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-label {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.45em;
+            color: var(--forge);
+            text-transform: uppercase;
         }
 
         .hero-h1 {
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(4.5rem, 11vw, 10rem);
-            line-height: 0.9; color: #fff; text-transform: uppercase;
-            margin-bottom: 2.5rem; max-width: 14ch;
-        }
-        .hero-h1 em { color: var(--forge-hi); font-style: normal; }
-
-        .hero-row {
-            display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 2rem; margin-bottom: 2.5rem;
-        }
-
-        .hero-price-label {
-            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
-            letter-spacing: 0.45em; color: rgba(255,255,255,0.3);
-            text-transform: uppercase; display: block; margin-bottom: 0.25rem;
-        }
-
-        .hero-price {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; line-height: 1;
+            font-size: clamp(4rem, 12vw, 11rem);
+            line-height: 0.88;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 1.25rem 0 2rem;
         }
 
         .hero-meta {
-            font-family: "Barlow", sans-serif; font-size: 0.7rem;
-            letter-spacing: 0.3em; color: rgba(255,255,255,0.3);
-            text-transform: uppercase; line-height: 2;
+            font-family: "Barlow", sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
         }
 
-        .btn-wpp {
-            display: inline-flex; align-items: center; gap: 0.75rem;
-            background: #25D366; color: #fff;
-            font-family: "Bebas Neue", sans-serif; font-size: 1.2rem;
-            letter-spacing: 0.1em; padding: 1rem 2.5rem; text-decoration: none;
+        .hero-price-block {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            padding: 1.5rem 0;
+            margin: 2rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-price-label {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.45em;
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+        }
+
+        .hero-price-value {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        /* ── CTA MINIMALISTA ── */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #25D366;
+            color: #ffffff;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.1em;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
-        .btn-wpp:hover { background: #1fb356; transform: translateY(-2px); }
+        .cta-primary:hover { background: #1fb356; transform: translateY(-2px); }
 
-        /* ══════════════════════════════════════════
-           S2 — SPECS
-        ══════════════════════════════════════════ */
-        #s-specs { background: var(--paper); justify-content: flex-start; }
-
-        .specs-header {
-            padding: 4vh 5vw 2vh;
-            border-bottom: 1px solid var(--rule);
-            display: flex; align-items: baseline;
-            justify-content: space-between; flex-shrink: 0;
-        }
-
-        .specs-grid {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-        }
-
-        /* Cards com ícone agrupado ao conteúdo (não flutuante) */
-        .spec-card {
-            padding: 3vh 3vw;
-            border-right: 1px solid var(--rule);
-            border-bottom: 1px solid var(--rule);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: background 0.2s;
-            cursor: default;
-        }
-        .spec-card:hover { background: #fff; }
-        .spec-card:nth-child(3),
-        .spec-card:nth-child(6) { border-right: none; }
-        .spec-card:nth-child(4),
-        .spec-card:nth-child(5),
-        .spec-card:nth-child(6) { border-bottom: none; }
-
-        .spec-idx {
-            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
-            letter-spacing: 0.4em; color: var(--ink-mute);
-        }
-
-        /* Ícone + label + value agrupados no rodapé do card */
-        .spec-body { display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto; }
-
-        .spec-icon {
-            font-size: 1.75rem; color: var(--forge);
-        }
-
-        .spec-label {
-            font-family: "Barlow", sans-serif; font-size: 0.65rem;
-            letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-soft);
-        }
-
-        .spec-value {
+        .cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.6);
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 3rem); color: var(--ink); line-height: 1;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
         }
+        .cta-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
-        @media (max-width: 640px) {
-            .specs-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-            }
-            .spec-card:nth-child(3)  { border-right: 1px solid var(--rule); }
-            .spec-card:nth-child(2n) { border-right: none; }
-            .spec-card:nth-child(6)  { border-right: none; }
-            .spec-card:nth-child(5),
-            .spec-card:nth-child(6)  { border-bottom: none; }
-            .spec-card:nth-child(4)  { border-bottom: 1px solid var(--rule); }
+        /* ── SPECS — tabela industrial ── */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
         }
-
-        /* ══════════════════════════════════════════
-           S3 — DIFERENCIAIS
-        ══════════════════════════════════════════ */
-        #s-diferenciais { background: #1a1815; }
-
-        .dif-header {
-            padding: 4vh 5vw 2vh;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex; align-items: baseline;
-            justify-content: space-between; flex-shrink: 0;
+        .spec-table tr {
+            border-bottom: 1px solid var(--rule);
+            transition: background 0.15s;
         }
-
-        .dif-grid {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 1px;
-            background: rgba(255,255,255,0.04);
+        .spec-table tr:first-child { border-top: 1px solid var(--rule); }
+        .spec-table tr:hover { background: var(--paper-hi); }
+        .spec-table td {
+            padding: 1.5rem 0;
+            vertical-align: middle;
         }
-
-        .dif-card {
-            background: #1a1815;
-            padding: 4vh 4vw;
-            display: flex; flex-direction: column; gap: 1.25rem;
-            transition: background 0.2s;
-        }
-        .dif-card:hover { background: #201e19; }
-
-        .dif-num {
-            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
-            letter-spacing: 0.45em; color: var(--forge);
-        }
-
-        .dif-icon {
-            font-size: 2rem; color: rgba(255,255,255,0.25);
-            margin-top: auto;
-        }
-
-        .dif-title {
+        .spec-table .num {
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            color: #fff; line-height: 1;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--ink-mute);
+            width: 3rem;
+        }
+        .spec-table .label {
+            font-family: "Barlow", sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            width: 35%;
+        }
+        .spec-table .value {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 2.2rem;
+            color: var(--ink);
+            line-height: 1;
+        }
+        .spec-table .accent {
+            text-align: right;
+            color: var(--forge);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            font-family: "Barlow", sans-serif;
+            text-transform: uppercase;
         }
 
-        .dif-text {
-            font-family: "Barlow", sans-serif; font-size: 0.8rem;
-            letter-spacing: 0.03em; color: rgba(255,255,255,0.35);
-            line-height: 1.7; max-width: 32ch;
-        }
-
-        @media (max-width: 640px) {
-            .dif-grid { grid-template-columns: 1fr; grid-template-rows: repeat(4, auto); }
-        }
-
-        /* ══════════════════════════════════════════
-           S4 — GALERIA
-        ══════════════════════════════════════════ */
-        #s-galeria { background: #0f0e0a; }
-
-        .gallery-header {
-            padding: 4vh 5vw 2vh;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex; align-items: baseline;
-            justify-content: space-between; flex-shrink: 0;
-        }
-
-        .gallery-fs {
-            flex: 1;
+        /* ── GALERIA — limpa ── */
+        .gallery-clean {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px; overflow: hidden;
+            gap: 2px;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 640px) {
+            .gallery-clean { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 1024px) {
+            .gallery-clean { grid-template-columns: 1fr 1fr 1fr; }
         }
 
-        .gallery-fs-btn {
-            position: relative; overflow: hidden;
-            background: var(--ink); border: none; cursor: pointer;
-            padding: 0; display: block;
+        .gallery-clean button {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            background: var(--ink);
         }
-        .gallery-fs-btn img {
-            width: 100%; height: 100%; min-height: 200px;
-            object-fit: cover; display: block;
-            filter: grayscale(15%);
+        .gallery-clean button img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%);
             transition: transform 0.6s ease, filter 0.4s ease;
         }
-        .gallery-fs-btn:hover img { transform: scale(1.05); filter: grayscale(0%); }
-
-        .gallery-fs-caption {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            padding: 1.5rem 1.25rem 1rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-            font-family: "Bebas Neue", sans-serif; font-size: 0.75rem;
-            letter-spacing: 0.4em; color: rgba(255,255,255,0.45);
-            text-transform: uppercase; transition: color 0.3s;
+        .gallery-clean button:hover img {
+            transform: scale(1.04);
+            filter: grayscale(0%);
         }
-        .gallery-fs-btn:hover .gallery-fs-caption { color: rgba(255,255,255,0.9); }
-
-        @media (max-width: 640px) {
-            .gallery-fs {
-                grid-template-columns: repeat(3, 85vw);
-                overflow-x: auto; overflow-y: hidden;
-                scroll-snap-type: x mandatory;
-            }
-            .gallery-fs-btn { scroll-snap-align: start; }
-        }
-
-        /* ══════════════════════════════════════════
-           S5 — CONTATO
-        ══════════════════════════════════════════ */
-        #s-contato { background: var(--ink); }
-
-        .contato-inner {
-            position: relative; z-index: 1; padding: 5vh 5vw;
-            height: 100%; display: flex; flex-direction: column; justify-content: center;
-        }
-
-        .contato-eyebrow {
-            font-family: "Bebas Neue", sans-serif; font-size: 0.7rem;
-            letter-spacing: 0.5em; color: var(--forge-hi);
-            text-transform: uppercase; margin-bottom: 1.5rem;
-        }
-
-        .contato-h2 {
+        .gallery-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(3.5rem, 9vw, 8rem);
-            line-height: 0.9; color: #fff;
-            text-transform: uppercase; margin-bottom: 3rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            transform: translateY(4px);
+            transition: transform 0.3s, color 0.3s;
+        }
+        .gallery-clean button:hover .gallery-caption {
+            transform: translateY(0);
+            color: rgba(255,255,255,0.9);
         }
 
-        .contato-info-row {
-            display: flex; flex-direction: column; gap: 0;
-            margin-bottom: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .info-line {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            flex-wrap: wrap; gap: 0.5rem;
-        }
-
-        .info-key {
-            font-family: "Barlow", sans-serif; font-size: 0.65rem;
-            letter-spacing: 0.4em; color: rgba(255,255,255,0.2); text-transform: uppercase;
-        }
-
-        .info-val {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(1.4rem, 3vw, 2.2rem); color: #fff; line-height: 1;
-        }
-        .info-val.accent { color: var(--forge-hi); }
-
-        /* ══════════════════════════════════════════
-           LIGHTBOX
-        ══════════════════════════════════════════ */
+        /* ── LIGHTBOX ── */
         #lightbox {
-            display: none; position: fixed; z-index: 500; inset: 0;
+            display: none; position: fixed; z-index: 1000; inset: 0;
             background: rgba(0,0,0,0.97); align-items: center; justify-content: center;
         }
         #lightbox img { max-width: 85%; max-height: 80%; object-fit: contain; user-select: none; }
         .lb-nav {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: transparent; border: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.4); font-size: 2rem;
-            padding: 0.75rem 1.1rem; cursor: pointer;
-            font-family: "Bebas Neue", sans-serif; line-height: 1; transition: all 0.2s;
+            color: rgba(255,255,255,0.5); font-size: 2rem; padding: 0.75rem 1.1rem;
+            cursor: pointer; transition: all 0.2s;
+            font-family: "Bebas Neue", sans-serif; line-height: 1;
         }
         .lb-nav:hover { border-color: var(--forge); color: var(--forge); }
         .lb-nav.prev { left: 2rem; }
         .lb-nav.next { right: 2rem; }
-        .lb-close {
-            position: absolute; top: 1.5rem; right: 2rem;
-            background: transparent; border: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.4); font-size: 1.75rem;
-            padding: 0.25rem 0.75rem; cursor: pointer;
-            font-family: "Bebas Neue", sans-serif; line-height: 1; transition: all 0.2s;
-        }
-        .lb-close:hover { border-color: var(--forge); color: var(--forge); }
 
-        /* ── WhatsApp float ── */
-        .wpp-float {
-            position: fixed; bottom: 2rem; right: 5rem;
-            background: #25D366; color: #fff; padding: 0.875rem;
-            z-index: 100; transition: transform 0.2s;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .wpp-float:hover { transform: scale(1.1); }
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: none; }
     </style>
 </head>
 
 <body>
     <div aria-hidden="true" class="grain"></div>
 
-    <!-- NAV DOTS — 5 seções -->
-    <nav class="nav-dots" id="nav-dots" aria-label="Navegação de seções">
-        <button class="nav-dot active" data-target="s-hero"          aria-label="Ir para o início"></button>
-        <button class="nav-dot"        data-target="s-specs"         aria-label="Ir para especificações"></button>
-        <button class="nav-dot"        data-target="s-diferenciais"  aria-label="Ir para diferenciais"></button>
-        <button class="nav-dot"        data-target="s-galeria"       aria-label="Ir para galeria"></button>
-        <button class="nav-dot"        data-target="s-contato"       aria-label="Ir para contato"></button>
-    </nav>
+    <!-- ══════════════════════════════════════════
+         HERO — dark, imagem como textura, tipografia maciça
+    ══════════════════════════════════════════ -->
+    <header class="hero-wrap">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-bg-num" aria-hidden="true">RP</div>
 
-    <!-- HUD INFERIOR -->
-    <div class="hud-bottom" aria-hidden="true">
-        <span class="hud-label"   id="hud-label">Reboques Prime</span>
-        <span class="hud-counter" id="hud-counter">01 / 05</span>
-    </div>
+        <div class="hero-content" style="position:relative;z-index:1;">
 
-    <!-- WHATSAPP FLOAT -->
-    <a class="wpp-float"
-        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-        target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-        <span class="material-symbols-outlined" aria-hidden="true"
-            style="font-size:1.5rem; font-variation-settings:'FILL' 1;">chat</span>
-    </a>
+            <!-- Linha de topo: marca + label -->
+            <div class="flex items-center gap-6 mb-2">
+                <span class="hero-label">Reboques Prime</span>
+                <div style="flex:1;height:1px;background:rgba(255,255,255,0.08);"></div>
+                <span class="hero-label" style="color:rgba(255,255,255,0.2);">Bacabeira · MA</span>
+            </div>
 
-    <div id="scroll-wrap">
+            <!-- Headline maciça -->
+            <h1 class="hero-h1">
+                A Caretinha<br/>
+                Feita para<br/>
+                <span style="color:var(--forge);">a Sua Moto</span>
+            </h1>
 
-        <!-- ══ S1: HERO ══════════════════════════ -->
-        <section class="fs-section" id="s-hero" data-label="Reboques Prime" data-index="1">
-            <div class="hero-bg-img" aria-hidden="true"></div>
-            <div class="hero-inner">
-                <p class="hero-eyebrow">Exclusivo para Motos</p>
-                <h1 class="hero-h1">
-                    A Caretinha<br/>
-                    Feita para<br/>
-                    <em>a Sua Moto</em>
-                </h1>
-                <div class="hero-row">
-                    <div>
-                        <span class="hero-price-label">Investimento</span>
-                        <span class="hero-price">R$ 3.500,00</span>
-                    </div>
-                    <p class="hero-meta">
-                        Perfil U 2" × 1/8<br/>
-                        Madeira Tatajuba<br/>
-                        350 kg de carga
-                    </p>
-                </div>
-                <a class="btn-wpp"
+            <!-- Sub técnico -->
+            <p class="hero-meta">
+                Perfil U 2" × 1/8 &nbsp;·&nbsp; Madeira Tatajuba &nbsp;·&nbsp; 350 kg de Carga
+            </p>
+
+            <!-- Bloco de preço como linha de tabela -->
+            <div class="hero-price-block">
+                <span class="hero-price-label">Investimento</span>
+                <span class="hero-price-value">R$ 3.500,00</span>
+                <span class="hero-price-label" style="margin-left:auto;">Artesanal · Sob encomenda</span>
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a class="cta-primary"
                     href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
                     target="_blank" rel="noopener noreferrer"
                     aria-label="Solicitar orçamento via WhatsApp">
-                    <span class="material-symbols-outlined" aria-hidden="true"
-                        style="font-variation-settings:'FILL' 1;">chat</span>
+                    <span class="material-symbols-outlined text-xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">chat</span>
                     Solicitar agora
                 </a>
-            </div>
-            <div class="scroll-hint" aria-hidden="true">
-                <span class="material-symbols-outlined" style="color:rgba(255,255,255,0.3);font-size:1.5rem;">expand_more</span>
-                <span>Role</span>
-            </div>
-        </section>
-
-        <!-- ══ S2: SPECS ═════════════════════════ -->
-        <section class="fs-section" id="s-specs"
-            data-label="Especificações Técnicas" data-index="2" data-dots-dark="true">
-
-            <div class="specs-header">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;">
-                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">02</span>
-                    <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:var(--ink);text-transform:uppercase;line-height:1;">
-                        Especificações Técnicas
-                    </h2>
-                </div>
-            </div>
-
-            <div class="specs-grid">
-                <div class="spec-card reveal reveal-delay-1">
-                    <span class="spec-idx">01</span>
-                    <div class="spec-body">
-                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">straighten</span>
-                        <p class="spec-label">Comprimento</p>
-                        <p class="spec-value">0,90 m</p>
-                    </div>
-                </div>
-                <div class="spec-card reveal reveal-delay-2">
-                    <span class="spec-idx">02</span>
-                    <div class="spec-body">
-                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">width</span>
-                        <p class="spec-label">Largura</p>
-                        <p class="spec-value">1,00 m</p>
-                    </div>
-                </div>
-                <div class="spec-card reveal reveal-delay-3">
-                    <span class="spec-idx">03</span>
-                    <div class="spec-body">
-                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">height</span>
-                        <p class="spec-label">Altura Laterais</p>
-                        <p class="spec-value">0,30 m</p>
-                    </div>
-                </div>
-                <div class="spec-card reveal reveal-delay-1">
-                    <span class="spec-idx">04</span>
-                    <div class="spec-body">
-                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">weight</span>
-                        <p class="spec-label">Capacidade</p>
-                        <p class="spec-value">350 kg</p>
-                    </div>
-                </div>
-                <div class="spec-card reveal reveal-delay-2">
-                    <span class="spec-idx">05</span>
-                    <div class="spec-body">
-                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">settings_input_component</span>
-                        <p class="spec-label">Estrutura</p>
-                        <p class="spec-value" style="font-size:clamp(1.2rem,2.5vw,2rem);">Perfil U 2" × 1/8</p>
-                    </div>
-                </div>
-                <div class="spec-card reveal reveal-delay-3" style="background:var(--forge);border-color:var(--forge);">
-                    <span class="spec-idx" style="color:rgba(255,255,255,0.4);">06</span>
-                    <div class="spec-body">
-                        <span class="material-symbols-outlined spec-icon" style="color:rgba(255,255,255,0.7);" aria-hidden="true">motorcycle</span>
-                        <p class="spec-label" style="color:rgba(255,255,255,0.6);">Engate</p>
-                        <p class="spec-value" style="color:#fff;font-size:clamp(1.2rem,2.5vw,2rem);">Sob medida</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ S3: DIFERENCIAIS ═══════════════════ -->
-        <section class="fs-section" id="s-diferenciais"
-            data-label="Por que Reboques Prime?" data-index="3">
-
-            <div class="dif-header">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;">
-                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">03</span>
-                    <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:#fff;text-transform:uppercase;line-height:1;">
-                        Por que Reboques Prime?
-                    </h2>
-                </div>
-            </div>
-
-            <div class="dif-grid">
-                <div class="dif-card reveal reveal-delay-1">
-                    <span class="dif-num">01</span>
-                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
-                        style="font-variation-settings:'FILL' 1;">handyman</span>
-                    <div>
-                        <p class="dif-title">100% Artesanal</p>
-                        <p class="dif-text">Cada reboque é montado à mão, peça por peça. Não somos uma fábrica — somos um ateliê de metal e madeira.</p>
-                    </div>
-                </div>
-                <div class="dif-card reveal reveal-delay-2">
-                    <span class="dif-num">02</span>
-                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
-                        style="font-variation-settings:'FILL' 1;">verified</span>
-                    <div>
-                        <p class="dif-title">Qualidade Garantida</p>
-                        <p class="dif-text">Soldagem profissional, madeira nobre Tatajuba e pintura automotiva resistente à corrosão.</p>
-                    </div>
-                </div>
-                <div class="dif-card reveal reveal-delay-3">
-                    <span class="dif-num">03</span>
-                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
-                        style="font-variation-settings:'FILL' 1;">build</span>
-                    <div>
-                        <p class="dif-title">Sob Medida</p>
-                        <p class="dif-text">Adaptamos o engate para o modelo da sua moto. Consulte compatibilidade antes de encomendar.</p>
-                    </div>
-                </div>
-                <div class="dif-card reveal reveal-delay-4">
-                    <span class="dif-num">04</span>
-                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
-                        style="font-variation-settings:'FILL' 1;">local_shipping</span>
-                    <div>
-                        <p class="dif-title">Entrega Regional</p>
-                        <p class="dif-text">Atendemos Bacabeira e região do Maranhão. Consulte disponibilidade para outras cidades.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ S4: GALERIA ════════════════════════ -->
-        <section class="fs-section" id="s-galeria"
-            data-label="Galeria de Fotos" data-index="4">
-
-            <div class="gallery-header">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;">
-                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">04</span>
-                    <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:#fff;text-transform:uppercase;line-height:1;">
-                        Galeria de Fotos
-                    </h2>
-                </div>
-                <span style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(255,255,255,0.2);text-transform:uppercase;">
-                    Clique para ampliar
-                </span>
-            </div>
-
-            <div class="gallery-fs">
-                <button class="gallery-fs-btn reveal reveal-delay-1"
-                    onclick="openLightbox(0)" aria-label="Ampliar: Vista traseira">
-                    <img alt="Vista traseira da caretinha Reboques Prime"
-                        src="assets/img/gallery1.jpg" loading="lazy" />
-                    <div class="gallery-fs-caption" aria-hidden="true">Vista Traseira</div>
-                </button>
-                <button class="gallery-fs-btn reveal reveal-delay-2"
-                    onclick="openLightbox(1)" aria-label="Ampliar: Detalhes laterais">
-                    <img alt="Detalhes laterais da caretinha Reboques Prime"
-                        src="assets/img/gallery2.jpg" loading="lazy" />
-                    <div class="gallery-fs-caption" aria-hidden="true">Detalhes Laterais</div>
-                </button>
-                <button class="gallery-fs-btn reveal reveal-delay-3"
-                    onclick="openLightbox(2)" aria-label="Ampliar: Estrutura completa">
-                    <img alt="Estrutura completa da caretinha Reboques Prime"
-                        src="assets/img/gallery3.jpg" loading="lazy" />
-                    <div class="gallery-fs-caption" aria-hidden="true">Estrutura Completa</div>
-                </button>
-            </div>
-        </section>
-
-        <!-- ══ S5: CONTATO ════════════════════════ -->
-        <section class="fs-section" id="s-contato"
-            data-label="Contato" data-index="5">
-
-            <div class="contato-inner">
-                <p class="contato-eyebrow reveal">Fale conosco</p>
-                <h2 class="contato-h2 reveal">
-                    Ficou<br/>Interessado?
-                </h2>
-                <div class="contato-info-row reveal">
-                    <div class="info-line">
-                        <span class="info-key">Telefone</span>
-                        <span class="info-val">(98) 99155-7039</span>
-                    </div>
-                    <div class="info-line">
-                        <span class="info-key">Localização</span>
-                        <span class="info-val">Bacabeira, Maranhão</span>
-                    </div>
-                    <div class="info-line">
-                        <span class="info-key">Investimento</span>
-                        <span class="info-val accent">R$ 3.500,00</span>
-                    </div>
-                </div>
-                <a class="btn-wpp reveal" style="align-self:flex-start;"
-                    href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-                    target="_blank" rel="noopener noreferrer"
-                    aria-label="Conversar no WhatsApp">
-                    <span class="material-symbols-outlined" aria-hidden="true"
-                        style="font-variation-settings:'FILL' 1;">chat</span>
-                    Conversar no WhatsApp
+                <a class="cta-ghost" href="#galeria" aria-label="Ver galeria de fotos">
+                    <span class="material-symbols-outlined text-xl" aria-hidden="true">photo_library</span>
+                    Ver fotos
                 </a>
-                <div style="position:absolute;bottom:2rem;left:5vw;right:5vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
-                    <span style="font-family:'Barlow',sans-serif;font-size:0.55rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
-                        © 2026 Reboques Prime
-                    </span>
-                    <span style="font-family:'Barlow',sans-serif;font-size:0.55rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
-                        Artesanalmente feito no Maranhão
-                    </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════
+         ESPECIFICAÇÕES — tabela industrial
+    ══════════════════════════════════════════ -->
+    <section style="background:var(--paper);">
+        <div style="max-width:72rem;margin:0 auto;padding:5rem 2.5rem;">
+
+            <!-- Cabeçalho da seção -->
+            <div class="reveal" style="display:flex;align-items:baseline;gap:2rem;margin-bottom:3.5rem;">
+                <span class="font-hl" style="font-size:0.7rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">01</span>
+                <h2 class="font-hl" style="font-size:clamp(2.5rem,6vw,4.5rem);color:var(--ink);line-height:1;text-transform:uppercase;">Especificações Técnicas</h2>
+            </div>
+
+            <div class="reveal" style="display:grid;grid-template-columns:1fr;gap:4rem;">
+                <div>
+                    <!-- Tabela de specs -->
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <td class="num">01</td>
+                                <td class="label">Comprimento</td>
+                                <td class="value">0,90 m</td>
+                                <td class="accent">Carga</td>
+                            </tr>
+                            <tr>
+                                <td class="num">02</td>
+                                <td class="label">Largura</td>
+                                <td class="value">1,00 m</td>
+                                <td class="accent">Carga</td>
+                            </tr>
+                            <tr>
+                                <td class="num">03</td>
+                                <td class="label">Altura Laterais</td>
+                                <td class="value">0,30 m</td>
+                                <td class="accent">Lateral</td>
+                            </tr>
+                            <tr>
+                                <td class="num">04</td>
+                                <td class="label">Capacidade</td>
+                                <td class="value">350 kg</td>
+                                <td class="accent">Real</td>
+                            </tr>
+                            <tr>
+                                <td class="num">05</td>
+                                <td class="label">Estrutura</td>
+                                <td class="value" style="font-size:1.5rem;">Perfil U 2" × 1/8</td>
+                                <td class="accent">Aço</td>
+                            </tr>
+                            <tr>
+                                <td class="num">06</td>
+                                <td class="label">Acabamento</td>
+                                <td class="value" style="font-size:1.5rem;">Madeira Tatajuba</td>
+                                <td class="accent">Nobre</td>
+                            </tr>
+                            <tr>
+                                <td class="num">07</td>
+                                <td class="label">Engate</td>
+                                <td class="value" style="font-size:1.5rem;">Sob medida</td>
+                                <td class="accent">Exclusivo</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </section>
 
-    </div><!-- /scroll-wrap -->
+            <!-- Nota de rodapé da seção -->
+            <div class="reveal" style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;gap:1rem;align-items:start;">
+                <span class="material-symbols-outlined" aria-hidden="true" style="color:var(--forge);font-size:1.25rem;margin-top:0.1rem;font-variation-settings:'FILL' 1;">info</span>
+                <p style="font-family:'Barlow',sans-serif;font-size:0.8rem;letter-spacing:0.05em;color:var(--ink-soft);line-height:1.7;text-transform:uppercase;">
+                    Engate adaptado para o modelo da sua moto. Consulte compatibilidade antes de encomendar.
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <!-- LIGHTBOX -->
-    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto"
-        onclick="if(event.target===this)closeLb()">
+    <div class="section-rule"></div>
+
+    <!-- ══════════════════════════════════════════
+         GALERIA — grid limpo, escala no hover
+    ══════════════════════════════════════════ -->
+    <section style="background:var(--ink);" id="galeria">
+        <div style="max-width:90rem;margin:0 auto;padding:5rem 2.5rem;">
+
+            <!-- Cabeçalho -->
+            <div class="reveal" style="display:flex;align-items:baseline;justify-content:space-between;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;">
+                <div style="display:flex;align-items:baseline;gap:2rem;">
+                    <span class="font-hl" style="font-size:0.7rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">02</span>
+                    <h2 class="font-hl" style="font-size:clamp(2.5rem,6vw,4.5rem);color:#ffffff;line-height:1;text-transform:uppercase;">Galeria</h2>
+                </div>
+                <span style="font-family:'Barlow',sans-serif;font-size:0.7rem;letter-spacing:0.35em;color:rgba(255,255,255,0.2);text-transform:uppercase;">3 fotos</span>
+            </div>
+
+            <div class="gallery-clean reveal">
+                <button onclick="openLightbox(0)" aria-label="Ampliar: Vista traseira"
+                    class="focus:outline-none focus:ring-1 focus:ring-forge">
+                    <img alt="Vista traseira da caretinha Reboques Prime" src="assets/img/gallery1.jpg" loading="lazy" />
+                    <div class="gallery-caption" aria-hidden="true">Vista Traseira</div>
+                </button>
+                <button onclick="openLightbox(1)" aria-label="Ampliar: Detalhes laterais"
+                    class="focus:outline-none focus:ring-1 focus:ring-forge">
+                    <img alt="Detalhes laterais da caretinha Reboques Prime" src="assets/img/gallery2.jpg" loading="lazy" />
+                    <div class="gallery-caption" aria-hidden="true">Detalhes Laterais</div>
+                </button>
+                <button onclick="openLightbox(2)" aria-label="Ampliar: Estrutura completa"
+                    class="focus:outline-none focus:ring-1 focus:ring-forge">
+                    <img alt="Estrutura completa da caretinha Reboques Prime" src="assets/img/gallery3.jpg" loading="lazy" />
+                    <div class="gallery-caption" aria-hidden="true">Estrutura Completa</div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+
+    <!-- ══════════════════════════════════════════
+         CONTATO — minimalista, linha de tabela
+    ══════════════════════════════════════════ -->
+    <section style="background:var(--ink);">
+        <div style="max-width:72rem;margin:0 auto;padding:5rem 2.5rem;">
+
+            <!-- Cabeçalho -->
+            <div class="reveal" style="display:flex;align-items:baseline;gap:2rem;margin-bottom:4rem;">
+                <span class="font-hl" style="font-size:0.7rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">03</span>
+                <h2 class="font-hl" style="font-size:clamp(2.5rem,6vw,4.5rem);color:#ffffff;line-height:1;text-transform:uppercase;">Contato</h2>
+            </div>
+
+            <!-- Linha de informação — estilo tabela -->
+            <div class="reveal" style="border-top:1px solid rgba(255,255,255,0.06);">
+
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem;">
+                    <span style="font-family:'Barlow',sans-serif;font-size:0.65rem;letter-spacing:0.4em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Telefone</span>
+                    <span class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:#ffffff;letter-spacing:0.02em;">(98) 99155-7039</span>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem;">
+                    <span style="font-family:'Barlow',sans-serif;font-size:0.65rem;letter-spacing:0.4em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Localização</span>
+                    <span class="font-hl" style="font-size:clamp(1.5rem,3vw,2.2rem);color:rgba(255,255,255,0.6);">Bacabeira, Maranhão — Brasil</span>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem;">
+                    <span style="font-family:'Barlow',sans-serif;font-size:0.65rem;letter-spacing:0.4em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Investimento</span>
+                    <span class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:var(--forge);">R$ 3.500,00</span>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:2rem 0;flex-wrap:wrap;gap:1.5rem;">
+                    <span style="font-family:'Barlow',sans-serif;font-size:0.65rem;letter-spacing:0.4em;color:rgba(255,255,255,0.25);text-transform:uppercase;">WhatsApp</span>
+                    <a class="cta-primary"
+                        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Conversar no WhatsApp">
+                        <span class="material-symbols-outlined text-xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">chat</span>
+                        Conversar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════ -->
+    <footer style="background:#0a0a08;padding:4rem 2.5rem;border-top:1px solid rgba(255,255,255,0.04);">
+        <div style="max-width:72rem;margin:0 auto;display:flex;flex-direction:column;gap:3rem;">
+
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+                <h4 class="font-hl" style="font-size:2.5rem;color:#fff;letter-spacing:0.05em;text-transform:uppercase;">
+                    Reboques <span style="color:var(--forge);">Prime</span>
+                </h4>
+                <p style="font-family:'Barlow',sans-serif;font-size:0.7rem;letter-spacing:0.3em;color:rgba(255,255,255,0.2);text-transform:uppercase;max-width:32rem;line-height:2;">
+                    Carretinhas artesanais de alto padrão para motociclistas. Qualidade e robustez em cada detalhe.
+                </p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+                <span style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.45em;color:rgba(255,255,255,0.15);text-transform:uppercase;">Navegação</span>
+                <nav style="display:flex;gap:2.5rem;flex-wrap:wrap;">
+                    <a href="#" style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;text-transform:uppercase;"
+                        onmouseover="this.style.color='#c47a35'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Início</a>
+                    <a href="#galeria" style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;text-transform:uppercase;"
+                        onmouseover="this.style.color='#c47a35'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Galeria</a>
+                    <a href="https://wa.me/5598991557039" target="_blank" rel="noopener noreferrer"
+                        style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;text-transform:uppercase;"
+                        onmouseover="this.style.color='#c47a35'" onmouseout="this.style.color='rgba(255,255,255,0.3)'"
+                        aria-label="Solicitar orçamento via WhatsApp">Orçamento</a>
+                </nav>
+            </div>
+
+            <div style="padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+                <p style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
+                    © 2026 Reboques Prime. Todos os direitos reservados.
+                </p>
+                <p style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
+                    Artesanalmente feito no Maranhão
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float — discreto -->
+    <a class="fixed bottom-8 right-8 z-40 hover:scale-110 transition-transform"
+        style="background:var(--forge);padding:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);"
+        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
+        target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+        <span class="material-symbols-outlined" style="color:#fff;font-size:1.75rem;" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">chat</span>
+    </a>
+
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto" onclick="handleLbClick(event)">
         <button class="lb-nav prev" onclick="navLb(-1)" aria-label="Foto anterior">&#8249;</button>
         <img alt="" id="lightbox-img" src="" />
         <button class="lb-nav next" onclick="navLb(1)" aria-label="Próxima foto">&#8250;</button>
-        <button class="lb-close" onclick="closeLb()" aria-label="Fechar">×</button>
+        <button onclick="closeLb()" aria-label="Fechar"
+            style="position:absolute;top:1.5rem;right:2rem;background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);font-family:'Bebas Neue',sans-serif;font-size:2rem;padding:0.25rem 0.75rem;cursor:pointer;line-height:1;transition:all 0.2s;"
+            onmouseover="this.style.borderColor='var(--forge)';this.style.color='var(--forge)'"
+            onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'"
+        >×</button>
     </div>
 
     <script>
-    // ── Lightbox ───────────────────────────────
-    const imgs = [
-        { src: 'assets/img/gallery1.jpg', alt: 'Vista traseira da caretinha' },
-        { src: 'assets/img/gallery2.jpg', alt: 'Detalhes laterais da caretinha' },
-        { src: 'assets/img/gallery3.jpg', alt: 'Estrutura completa da caretinha' },
-    ];
-    let cur = 0;
-
-    function openLightbox(i) {
-        cur = i;
-        const img = document.getElementById('lightbox-img');
-        img.src = imgs[cur].src; img.alt = imgs[cur].alt;
-        document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-    function closeLb() {
-        document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-    function navLb(d) {
-        cur = (cur + d + imgs.length) % imgs.length;
-        const img = document.getElementById('lightbox-img');
-        img.src = imgs[cur].src; img.alt = imgs[cur].alt;
-    }
-    document.addEventListener('keydown', e => {
-        if (document.getElementById('lightbox').style.display !== 'flex') return;
-        if (e.key === 'Escape')      closeLb();
-        if (e.key === 'ArrowRight') navLb(1);
-        if (e.key === 'ArrowLeft')  navLb(-1);
-    });
-
-    // ── Dots + HUD ─────────────────────────────
-    const sections   = Array.from(document.querySelectorAll('.fs-section'));
-    const dots       = Array.from(document.querySelectorAll('.nav-dot'));
-    const hudLabel   = document.getElementById('hud-label');
-    const hudCounter = document.getElementById('hud-counter');
-    const navDotsEl  = document.getElementById('nav-dots');
-    const total      = sections.length;
-
-    const sectionLabels = {
-        's-hero':         'Reboques Prime',
-        's-specs':        'Especificações',
-        's-diferenciais': 'Diferenciais',
-        's-galeria':      'Galeria',
-        's-contato':      'Contato',
-    };
-
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            document.getElementById(dot.dataset.target)
-                .scrollIntoView({ behavior: 'smooth' });
+        const imgs = [
+            { src: 'assets/img/gallery1.jpg', alt: 'Vista traseira da caretinha' },
+            { src: 'assets/img/gallery2.jpg', alt: 'Detalhes laterais da caretinha' },
+            { src: 'assets/img/gallery3.jpg', alt: 'Estrutura completa da caretinha' },
+        ];
+        let cur = 0;
+        function openLightbox(i) {
+            cur = i;
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = imgs[cur].src; img.alt = imgs[cur].alt;
+            lb.style.display = 'flex'; document.body.style.overflow = 'hidden';
+        }
+        function closeLb() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        function navLb(d) {
+            cur = (cur + d + imgs.length) % imgs.length;
+            const img = document.getElementById('lightbox-img');
+            img.src = imgs[cur].src; img.alt = imgs[cur].alt;
+        }
+        function handleLbClick(e) { if (e.target === document.getElementById('lightbox')) closeLb(); }
+        document.addEventListener('keydown', e => {
+            if (document.getElementById('lightbox').style.display !== 'flex') return;
+            if (e.key === 'Escape') closeLb();
+            if (e.key === 'ArrowRight') navLb(1);
+            if (e.key === 'ArrowLeft') navLb(-1);
         });
-    });
 
-    // IntersectionObserver: atualiza HUD + dots
-    const hudObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const id   = entry.target.id;
-            const idx  = sections.indexOf(entry.target);
-            const dark = entry.target.dataset.dotsDark === 'true';
-
-            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-            navDotsEl.classList.toggle('dots-dark', dark);
-            hudLabel.textContent   = sectionLabels[id] || '';
-            hudCounter.textContent = `0${idx + 1} / 0${total}`;
-            hudLabel.classList.toggle('dark-text', dark);
-            hudCounter.classList.toggle('dark-text', dark);
-        });
-    }, { root: null, threshold: 0.55 });
-
-    // IntersectionObserver: scroll reveal
-    const revealObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                revealObs.unobserve(entry.target);
-            }
-        });
-    }, { root: null, threshold: 0.12 });
-
-    sections.forEach(s => hudObs.observe(s));
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>
