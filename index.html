@@ -1,389 +1,866 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>REBOQUES PRIME - Reboque Artesanal para Moto</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Barlow:wght@400;600;700;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "outline-variant": "#e3bfb4",
-                        "on-surface": "#1d1c17",
-                        "primary-fixed-dim": "#ffb59e",
-                        "inverse-surface": "#32302b",
-                        "background": "#fef9f1",
-                        "secondary-container": "#fca95f",
-                        "tertiary-fixed": "#66ff8e",
-                        "on-tertiary-fixed": "#002109",
-                        "outline": "#8e7067",
-                        "error-container": "#ffdad6",
-                        "surface-container-lowest": "#ffffff",
-                        "inverse-on-surface": "#f5f0e8",
-                        "secondary-fixed": "#ffdcc2",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed-variant": "#005322",
-                        "tertiary": "#006d2f",
-                        "on-secondary-fixed-variant": "#6d3a00",
-                        "surface-container-high": "#ece8e0",
-                        "surface-tint": "#ad3300",
-                        "surface-variant": "#e7e2da",
-                        "surface-bright": "#fef9f1",
-                        "surface": "#fef9f1",
-                        "primary": "#ac3300",
-                        "on-primary": "#ffffff",
-                        "surface-dim": "#ded9d2",
-                        "on-secondary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "on-primary-fixed": "#3a0b00",
-                        "surface-container": "#f2ede5",
-                        "surface-container-low": "#f8f3eb",
-                        "inverse-primary": "#ffb59e",
-                        "on-secondary-fixed": "#2e1500",
-                        "secondary": "#8e4e08",
-                        "on-primary-container": "#ffffff",
-                        "on-secondary-container": "#733d00",
-                        "on-surface-variant": "#5a4139",
-                        "on-primary-fixed-variant": "#842500",
-                        "on-background": "#1d1c17",
-                        "tertiary-container": "#00893d",
-                        "on-tertiary-container": "#ffffff",
-                        "secondary-fixed-dim": "#ffb77b",
-                        "tertiary-fixed-dim": "#3de273",
-                        "on-error": "#ffffff",
-                        "primary-container": "#d4450c",
-                        "surface-container-highest": "#e7e2da",
-                        "on-error-container": "#93000a",
-                        "primary-fixed": "#ffdbd0"
-                    },
-                    "borderRadius": {
-                        "none": "0px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Bebas Neue", "sans-serif"],
-                        "body": ["Barlow", "sans-serif"]
-                    }
-                },
-            },
-        }
+
+    <meta name="description" content="Caretinhas artesanais exclusivas para motos. Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg. Feitas à mão em Bacabeira, Maranhão." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://reboquesprime.com.br/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="REBOQUES PRIME — A Caretinha Feita para a Sua Moto" />
+    <meta property="og:description" content="Perfil U 2&quot; x 1/8 · Madeira Tatajuba · 350 kg. Artesanal, exclusivo para motos." />
+    <meta property="og:image" content="assets/img/hero.jpg" />
+    <meta property="og:url" content="https://reboquesprime.com.br/" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Reboques Prime","telephone":"+55-98-99155-7039","address":{"@type":"PostalAddress","addressLocality":"Bacabeira","addressRegion":"MA","addressCountry":"BR"},"priceRange":"R$ 3.500,00"}
     </script>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link rel="preload" as="image" href="assets/img/hero.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
     <style>
+        /* ── RESET & BASE ─────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --forge:    #ac3300;
+            --forge-hi: #d4450c;
+            --paper:    #f2ede4;
+            --ink:      #131210;
+            --ink-soft: #5a4139;
+            --ink-mute: #9a9490;
+            --rule:     #d8d2c8;
+        }
+
+        html, body { height: 100%; overflow: hidden; }
+
         body {
-            font-family: "Barlow", sans-serif
+            font-family: "Barlow", sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .font-headline {
-            font-family: "Bebas Neue", sans-serif
+        .font-hl { font-family: "Bebas Neue", sans-serif; }
+        .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24; }
+
+        /* ── SCROLL CONTAINER ────────────────────── */
+        .scroll-wrap {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            /* Esconde a scrollbar mas mantém funcional */
+            scrollbar-width: none;
+        }
+        .scroll-wrap::-webkit-scrollbar { display: none; }
+
+        /* ── SEÇÕES FULL-SCREEN ──────────────────── */
+        .fs-section {
+            height: 100vh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        .material-symbols-outlined {
-            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        /* ── GRAIN ───────────────────────────────── */
+        .grain {
+            pointer-events: none; position: fixed; inset: 0; z-index: 200; opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 128px;
         }
 
-        /* Modal Lightbox Style */
-        #lightbox {
-            display: none;
+        /* ── NAV DOTS (fixo, lado direito) ───────── */
+        .nav-dots {
             position: fixed;
-            z-index: 1000;
-            top: 0;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 0;               /* industrial: sem arredondamento */
+            background: rgba(255,255,255,0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+            transform: rotate(45deg);       /* losango */
+        }
+        .nav-dot:hover { background: rgba(255,255,255,0.5); transform: rotate(45deg) scale(1.4); }
+        .nav-dot.active { background: var(--forge-hi); transform: rotate(45deg) scale(1.5); }
+
+        /* Dots escuros nas seções claras */
+        .dots-dark .nav-dot { background: rgba(0,0,0,0.15); }
+        .dots-dark .nav-dot:hover { background: rgba(0,0,0,0.4); }
+        .dots-dark .nav-dot.active { background: var(--forge); }
+
+        /* ── COUNTER & LABEL (fixo, rodapé) ─────── */
+        .hud-bottom {
+            position: fixed;
+            bottom: 2rem;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            align-items: center;
-            justify-content: center
-        }
-
-        #lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            object-fit: contain
-        }
-
-        .fade-up {
-            animation: fadeUp 1s ease-out forwards
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .grain-overlay {
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 2rem;
             pointer-events: none;
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            opacity: 0.03;
-            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBJbEtiPo99BUy2TjRQ-dN9UvTPtS51nl7Vb-TYJrYPfvxBmiIWre2bHes6Oc2eiAinKeWYnEWhqmuaj8aetpN8CQWOzNINP4UVBmvs7FOl1EGj3xRDoCf38o--P29MarHjyCW5ufXajA8T5sYX-lM1zsd1EhvxD0iWUeoeW3vwrlimFLKhqEnYXrVDm2ackE0vnU5dnJ0tAhTROSK-ehhKSJTQz1rKcd40ahAP5DsUc1aBGJGEkugdBLDneWcsvBxbriyyJ6EQydRI)
         }
+
+        .hud-label {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.45em;
+            color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
+            transition: color 0.4s;
+        }
+        .hud-label.dark-text { color: rgba(0,0,0,0.2); }
+
+        .hud-counter {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.45em;
+            color: rgba(255,255,255,0.2);
+            transition: color 0.4s;
+        }
+        .hud-counter.dark-text { color: rgba(0,0,0,0.2); }
+
+        /* ── SCROLL HINT (seta de scroll) ────────── */
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            animation: bounceDown 2s infinite;
+            opacity: 0.35;
+        }
+        .scroll-hint span { font-family: "Bebas Neue", sans-serif; font-size: 0.55rem; letter-spacing: 0.4em; color: #fff; }
+        @keyframes bounceDown {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ═══════════════════════════════════════════
+           SEÇÃO 1 — HERO
+        ═══════════════════════════════════════════ */
+        #s-hero {
+            background: var(--ink);
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero-bg-img {
+            position: absolute; inset: 0;
+            background: url('assets/img/hero.jpg') center/cover no-repeat;
+            opacity: 0.18;
+            filter: grayscale(60%);
+        }
+
+        .hero-inner {
+            position: relative; z-index: 1;
+            padding: 5vh 5vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-eyebrow {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.5em;
+            color: var(--forge-hi);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-h1 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(4.5rem, 11vw, 10rem);
+            line-height: 0.9;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            max-width: 14ch;
+        }
+
+        .hero-h1 em { color: var(--forge-hi); font-style: normal; }
+
+        .hero-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-price-label {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.45em;
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-price {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #fff;
+            line-height: 1;
+        }
+
+        .hero-meta {
+            font-family: "Barlow", sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            line-height: 2;
+        }
+
+        .btn-wpp {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: #25D366; color: #fff;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.2rem; letter-spacing: 0.1em;
+            padding: 1rem 2.5rem; text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-wpp:hover { background: #1fb356; transform: translateY(-2px); }
+
+        /* ═══════════════════════════════════════════
+           SEÇÃO 2 — SPECS
+        ═══════════════════════════════════════════ */
+        #s-specs {
+            background: var(--paper);
+            justify-content: flex-start;
+        }
+
+        .specs-header {
+            padding: 4vh 5vw 2vh;
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .specs-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .spec-card {
+            padding: 4vh 3vw;
+            border-right: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background 0.2s;
+            cursor: default;
+        }
+        .spec-card:hover { background: #fff; }
+        .spec-card:nth-child(3),
+        .spec-card:nth-child(6) { border-right: none; }
+        .spec-card:nth-child(4),
+        .spec-card:nth-child(5),
+        .spec-card:nth-child(6) { border-bottom: none; }
+
+        .spec-idx {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            color: var(--ink-mute);
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            color: var(--forge);
+            margin: auto 0;
+        }
+
+        .spec-label {
+            font-family: "Barlow", sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 0.4rem;
+        }
+
+        .spec-value {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            color: var(--ink);
+            line-height: 1;
+        }
+
+        /* Mobile specs: 2 cols */
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+            .spec-card:nth-child(3) { border-right: 1px solid var(--rule); }
+            .spec-card:nth-child(6) { border-right: none; }
+            .spec-card:nth-child(2n) { border-right: none; }
+            .spec-card:nth-child(5),
+            .spec-card:nth-child(6) { border-bottom: none; }
+            .spec-card:nth-child(4) { border-bottom: 1px solid var(--rule); }
+        }
+
+        /* ═══════════════════════════════════════════
+           SEÇÃO 3 — GALERIA
+        ═══════════════════════════════════════════ */
+        #s-galeria {
+            background: #0f0e0a;
+        }
+
+        .gallery-header {
+            padding: 4vh 5vw 2vh;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .gallery-fs {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            overflow: hidden;
+        }
+
+        .gallery-fs-btn {
+            position: relative;
+            overflow: hidden;
+            background: var(--ink);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: block;
+        }
+
+        .gallery-fs-btn img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(15%);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+
+        .gallery-fs-btn:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .gallery-fs-caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 1.5rem 1.25rem 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .gallery-fs-btn:hover .gallery-fs-caption { color: rgba(255,255,255,0.9); }
+
+        /* Mobile galeria: 1 coluna com scroll horizontal */
+        @media (max-width: 640px) {
+            .gallery-fs {
+                grid-template-columns: repeat(3, 85vw);
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .gallery-fs-btn { scroll-snap-align: start; }
+        }
+
+        /* ═══════════════════════════════════════════
+           SEÇÃO 4 — CONTATO
+        ═══════════════════════════════════════════ */
+        #s-contato {
+            background: var(--ink);
+            justify-content: center;
+        }
+
+        .contato-inner {
+            position: relative; z-index: 1;
+            padding: 5vh 5vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contato-eyebrow {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.5em;
+            color: var(--forge-hi);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .contato-h2 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            line-height: 0.9;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .contato-info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .info-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .info-key {
+            font-family: "Barlow", sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            color: rgba(255,255,255,0.2);
+            text-transform: uppercase;
+        }
+
+        .info-val {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            color: #fff;
+            line-height: 1;
+        }
+
+        .info-val.accent { color: var(--forge-hi); }
+
+        /* ═══════════════════════════════════════════
+           LIGHTBOX
+        ═══════════════════════════════════════════ */
+        #lightbox {
+            display: none; position: fixed; z-index: 500; inset: 0;
+            background: rgba(0,0,0,0.97);
+            align-items: center; justify-content: center;
+        }
+        #lightbox img { max-width: 85%; max-height: 80%; object-fit: contain; user-select: none; }
+        .lb-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: transparent; border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4); font-size: 2rem;
+            padding: 0.75rem 1.1rem; cursor: pointer;
+            font-family: "Bebas Neue", sans-serif; line-height: 1;
+            transition: all 0.2s;
+        }
+        .lb-nav:hover { border-color: var(--forge); color: var(--forge); }
+        .lb-nav.prev { left: 2rem; }
+        .lb-nav.next { right: 2rem; }
+        .lb-close {
+            position: absolute; top: 1.5rem; right: 2rem;
+            background: transparent; border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4); font-size: 1.75rem;
+            padding: 0.25rem 0.75rem; cursor: pointer;
+            font-family: "Bebas Neue", sans-serif; line-height: 1;
+            transition: all 0.2s;
+        }
+        .lb-close:hover { border-color: var(--forge); color: var(--forge); }
+
+        /* ── WhatsApp float ── */
+        .wpp-float {
+            position: fixed; bottom: 2rem; right: 5rem;
+            background: #25D366; color: #fff;
+            padding: 0.875rem;
+            z-index: 100;
+            transition: transform 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .wpp-float:hover { transform: scale(1.1); }
     </style>
 </head>
 
-<body class="bg-background text-on-surface antialiased">
-    <div class="grain-overlay"></div>
-    <!-- 1. HERO SECTION -->
-    <header class="relative min-h-screen flex items-center justify-center bg-black py-16">
-        <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover opacity-70" id="foto-principal" src="assets/img/hero.jpg" />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/30 to-black/90"></div>
-        </div>
-        <div class="relative z-10 w-full max-w-5xl px-8 md:px-12 text-center fade-up">
-            <div class="flex justify-center mb-6">
-                <span
-                    class="bg-[#D35400] text-white px-4 md:px-6 py-1.5 font-headline text-sm md:text-lg tracking-[0.2em] md:tracking-[0.4em] uppercase shadow-2xl">Exclusivo
-                    para Motos</span>
-            </div>
-            <h1
-                class="font-headline text-[2.8rem] leading-[1] md:text-7xl lg:text-8xl text-white md:leading-[0.9] mb-6 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] uppercase">
-                A CARETINHA FEITA<br class="hidden md:block" /> PARA A SUA MOTO
-            </h1>
-            <p
-                class="text-[11px] md:text-lg lg:text-xl text-white/80 font-body max-w-2xl mx-auto mb-10 uppercase tracking-[0.15em] md:tracking-[0.3em] leading-relaxed drop-shadow-lg px-2">
-                Estrutura robusta em Perfil U 2" x 1/8, acabamento premium em Madeira Tatajuba, capacidade de carga real
-                de 350kg.
-            </p>
-            <div class="flex flex-col items-center gap-6">
-                <div class="bg-black/40 backdrop-blur-md border border-white/10 px-8 py-5 md:px-12 md:py-6 shadow-2xl">
-                    <span
-                        class="block text-white/70 text-[10px] md:text-[11px] tracking-[0.3em] md:tracking-[0.5em] uppercase mb-1 font-headline">Investimento</span>
-                    <span class="text-3xl md:text-5xl lg:text-6xl font-headline text-white">R$ 3.500,00</span>
+<body>
+    <div aria-hidden="true" class="grain"></div>
+
+    <!-- ── NAVEGAÇÃO LATERAL ─────────────────── -->
+    <nav class="nav-dots" id="nav-dots" aria-label="Navegação de seções">
+        <button class="nav-dot active" data-target="s-hero"    aria-label="Ir para o início"></button>
+        <button class="nav-dot"        data-target="s-specs"   aria-label="Ir para especificações"></button>
+        <button class="nav-dot"        data-target="s-galeria" aria-label="Ir para galeria"></button>
+        <button class="nav-dot"        data-target="s-contato" aria-label="Ir para contato"></button>
+    </nav>
+
+    <!-- ── HUD INFERIOR ─────────────────────── -->
+    <div class="hud-bottom" aria-hidden="true">
+        <span class="hud-label" id="hud-label">Hero</span>
+        <span class="hud-counter" id="hud-counter">01 / 04</span>
+    </div>
+
+    <!-- ── WHATSAPP FLOAT ───────────────────── -->
+    <a class="wpp-float" href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
+        target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+        <span class="material-symbols-outlined" style="font-size:1.5rem;" aria-hidden="true" style="font-variation-settings:'FILL' 1;">chat</span>
+    </a>
+
+    <!-- ══════════════════════════════════════════
+         SCROLL CONTAINER
+    ══════════════════════════════════════════ -->
+    <div class="scroll-wrap" id="scroll-wrap">
+
+        <!-- ── S1: HERO ──────────────────────── -->
+        <section class="fs-section" id="s-hero"
+            data-label="Reboques Prime"
+            data-index="1">
+
+            <div class="hero-bg-img" aria-hidden="true"></div>
+
+            <div class="hero-inner">
+                <p class="hero-eyebrow">Exclusivo para Motos</p>
+
+                <h1 class="hero-h1">
+                    A Caretinha<br/>
+                    Feita para<br/>
+                    <em>a Sua Moto</em>
+                </h1>
+
+                <div class="hero-row">
+                    <div>
+                        <span class="hero-price-label">Investimento</span>
+                        <span class="hero-price">R$ 3.500,00</span>
+                    </div>
+                    <p class="hero-meta">
+                        Perfil U 2" × 1/8<br/>
+                        Madeira Tatajuba<br/>
+                        350 kg de carga
+                    </p>
                 </div>
-                <a class="bg-[#2ecc71] hover:bg-[#27ae60] transition-all transform hover:scale-105 px-8 py-4 md:px-10 md:py-5 text-white font-headline text-lg md:text-2xl flex items-center gap-3 md:gap-4 shadow-[0_20px_50px_rgba(46,204,113,0.3)] w-full md:w-auto justify-center"
-                    href="https://wa.me/5598991557039" target="_blank">
-                    <span class="material-symbols-outlined text-3xl md:text-4xl"
-                        style="font-variation-settings: 'FILL' 1;">chat</span>
-                    SOLICITAR AGORA
+
+                <a class="btn-wpp"
+                    href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Solicitar orçamento via WhatsApp">
+                    <span class="material-symbols-outlined" aria-hidden="true" style="font-variation-settings:'FILL' 1;">chat</span>
+                    Solicitar agora
                 </a>
             </div>
-        </div>
-    </header>
-    <!-- 2. FICHA TÉCNICA -->
-    <section class="pt-32 pb-16 px-10 md:px-24 bg-surface">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-headline text-5xl md:text-6xl text-primary mb-4">Especificações Técnicas</h2>
-                <div class="h-1 w-24 bg-secondary mx-auto"></div>
+
+            <!-- Scroll hint -->
+            <div class="scroll-hint" aria-hidden="true">
+                <span class="material-symbols-outlined" style="color:rgba(255,255,255,0.3);font-size:1.5rem;">expand_more</span>
+                <span>Role</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-                <!-- Card 1 -->
-                <div
-                    class="bg-surface-container-low p-10 flex flex-col items-center text-center group hover:bg-surface-container transition-colors">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">straighten</span>
-                    <h3 class="font-headline text-2xl mb-2">Comprimento</h3>
-                    <p class="font-body text-lg text-on-surface-variant">0,90m</p>
+        </section>
+
+        <!-- ── S2: SPECS ──────────────────────── -->
+        <section class="fs-section" id="s-specs"
+            data-label="Especificações Técnicas"
+            data-index="2"
+            data-dots-dark="true">
+
+            <!-- Cabeçalho -->
+            <div class="specs-header">
+                <div style="display:flex;align-items:baseline;gap:1.5rem;">
+                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">02</span>
+                    <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:var(--ink);text-transform:uppercase;line-height:1;">
+                        Especificações Técnicas
+                    </h2>
                 </div>
-                <!-- Card 2 -->
-                <div
-                    class="bg-surface-container p-10 flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">width</span>
-                    <h3 class="font-headline text-2xl mb-2">Largura</h3>
-                    <p class="font-body text-lg text-on-surface-variant">1,00m</p>
-                </div>
-                <!-- Card 3 -->
-                <div
-                    class="bg-surface-container-low p-10 flex flex-col items-center text-center group hover:bg-surface-container transition-colors">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">height</span>
-                    <h3 class="font-headline text-2xl mb-2">Altura Laterais</h3>
-                    <p class="font-body text-lg text-on-surface-variant">0,30m</p>
-                </div>
-                <!-- Card 4 -->
-                <div
-                    class="bg-surface-container p-10 flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">weight</span>
-                    <h3 class="font-headline text-2xl mb-2">Capacidade</h3>
-                    <p class="font-body text-lg text-on-surface-variant">350 kg</p>
-                </div>
-                <!-- Card 5 -->
-                <div
-                    class="bg-surface-container-low p-10 flex flex-col items-center text-center group hover:bg-surface-container transition-colors">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">settings_input_component</span>
-                    <h3 class="font-headline text-2xl mb-2">Estrutura</h3>
-                    <p class="font-body text-lg text-on-surface-variant">Perfil U 2" x 1/8</p>
-                </div>
-                <!-- Card 6 -->
-                <div
-                    class="bg-surface-container p-10 flex flex-col items-center text-center group hover:bg-surface-container-high transition-colors">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">motorcycle</span>
-                    <h3 class="font-headline text-2xl mb-2">Engate</h3>
-                    <p class="font-body text-lg text-on-surface-variant">Exclusivo para Motos</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- 3. GALERIA -->
-    <section class="pt-16 pb-32 px-10 md:px-24 bg-background" id="galeria">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-headline text-5xl md:text-6xl text-on-background mb-4 uppercase">Galeria de Fotos</h2>
-                <div class="h-1 w-24 bg-secondary mx-auto"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Item 1 -->
-                <div class="gallery-item overflow-hidden relative group cursor-pointer shadow-2xl"
-                    onclick="openLightbox('assets/img/gallery1.jpg')">
-                    <img alt="Vista traseira da caretinha"
-                        class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="assets/img/gallery1.jpg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                        <p class="text-white font-headline text-lg tracking-widest">VISTA TRASEIRA</p>
-                    </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="gallery-item overflow-hidden relative group cursor-pointer shadow-2xl"
-                    onclick="openLightbox('assets/img/gallery2.jpg')">
-                    <img alt="Vista lateral da caretinha"
-                        class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="assets/img/gallery2.jpg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                        <p class="text-white font-headline text-lg tracking-widest">DETALHES LATERAIS</p>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="gallery-item overflow-hidden relative group cursor-pointer shadow-2xl"
-                    onclick="openLightbox('assets/img/gallery3.jpg')">
-                    <img alt="Ângulo superior da caretinha"
-                        class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="assets/img/gallery3.jpg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                        <p class="text-white font-headline text-lg tracking-widest">ESTRUTURA COMPLETA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- 4. CONTATO -->
-    <section class="bg-[#111111] py-32 px-10 md:px-24 text-white text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-headline text-6xl md:text-7xl mb-6">Ficou Interessado?</h2>
-            <p class="font-body text-xl text-stone-400 mb-10 uppercase tracking-widest leading-relaxed">
-                Entre em contato diretamente pelo WhatsApp para garantir o seu reboque artesanal personalizado.
-            </p>
-            <div class="mb-12">
-                <span class="block text-secondary text-sm tracking-widest uppercase mb-2">Telefone Direto</span>
-                <p class="text-4xl md:text-5xl font-headline tracking-tighter">(98) 99155-7039</p>
-            </div>
-            <a class="bg-[#25D366] hover:bg-[#1fb356] transition-all px-12 py-6 text-white font-headline text-3xl inline-flex items-center gap-4"
-                href="https://wa.me/5598991557039" target="_blank">
-                <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">chat</span>
-                CONVERSAR NO WHATSAPP
-            </a>
-            <div class="mt-16 text-stone-500 flex flex-col items-center gap-2">
-                <span class="material-symbols-outlined">location_on</span>
-                <p class="font-body uppercase tracking-widest text-sm">Bacabeira, Maranhão — Brasil</p>
-            </div>
-        </div>
-    </section>
-    <!-- 5. FOOTER -->
-    <footer class="bg-[#0a0a0a] py-24 px-10 md:px-24 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
-            <!-- Coluna 1: Marca -->
-            <div class="space-y-6">
-                <h4 class="font-headline text-4xl text-white tracking-wider uppercase">REBOQUES <span
-                        class="text-secondary">PRIME</span></h4>
-                <p class="text-stone-500 font-body text-sm leading-relaxed uppercase tracking-tighter">
-                    Especialistas em carretinhas artesanais de alto padrão para motociclistas exigentes. Qualidade e
-                    robustez em cada detalhe.
-                </p>
-                <div class="flex gap-4">
-                    <a class="w-12 h-12 border border-white/10 flex items-center justify-center hover:bg-secondary transition-all hover:scale-110"
-                        href="https://wa.me/5598991557039" target="_blank">
-                        <span class="material-symbols-outlined text-white opacity-70">chat</span>
-                    </a>
-                </div>
+                <span style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.35em;color:var(--ink-mute);text-transform:uppercase;display:none;" class="md-show">
+                    Bacabeira · MA
+                </span>
             </div>
 
-            <!-- Coluna 2: Navegação -->
-            <div class="space-y-6">
-                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Navegação</span>
-                <ul class="space-y-4 font-body text-sm text-stone-400 uppercase tracking-widest">
-                    <li><a class="hover:text-secondary transition-colors" href="#">Início</a></li>
-                    <li><a class="hover:text-secondary transition-colors" href="#galeria">Galeria</a></li>
-                    <li><a class="hover:text-secondary transition-colors" href="https://wa.me/5598991557039">Solicitar
-                            Orçamento</a></li>
-                </ul>
-            </div>
-
-            <!-- Coluna 3: Contatos -->
-            <div class="space-y-6">
-                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Contato Direto</span>
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-secondary text-3xl">phone_iphone</span>
+            <!-- Grid de specs que preenche o restante do viewport -->
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <span class="spec-idx">01</span>
+                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">straighten</span>
                     <div>
-                        <p class="text-white font-headline text-2xl tracking-tighter">(98) 99155-7039</p>
-                        <p class="text-stone-600 text-[10px] uppercase font-bold tracking-widest">WhatsApp / Celular</p>
+                        <p class="spec-label">Comprimento</p>
+                        <p class="spec-value">0,90 m</p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-secondary text-3xl">location_on</span>
+                <div class="spec-card">
+                    <span class="spec-idx">02</span>
+                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">width</span>
                     <div>
-                        <p class="text-stone-400 font-body text-sm">Bacabeira, Maranhão — Brasil</p>
-                        <p class="text-stone-600 text-[10px] uppercase font-bold tracking-widest">Atendimento Regional
-                        </p>
+                        <p class="spec-label">Largura</p>
+                        <p class="spec-value">1,00 m</p>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-idx">03</span>
+                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">height</span>
+                    <div>
+                        <p class="spec-label">Altura Laterais</p>
+                        <p class="spec-value">0,30 m</p>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-idx">04</span>
+                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">weight</span>
+                    <div>
+                        <p class="spec-label">Capacidade</p>
+                        <p class="spec-value">350 kg</p>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-idx">05</span>
+                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">settings_input_component</span>
+                    <div>
+                        <p class="spec-label">Estrutura</p>
+                        <p class="spec-value" style="font-size:clamp(1.2rem,2.5vw,2rem);">Perfil U 2" × 1/8</p>
+                    </div>
+                </div>
+                <div class="spec-card" style="background:var(--forge);border-color:var(--forge);">
+                    <span class="spec-idx" style="color:rgba(255,255,255,0.4);">06</span>
+                    <span class="material-symbols-outlined spec-icon" style="color:rgba(255,255,255,0.7);" aria-hidden="true">motorcycle</span>
+                    <div>
+                        <p class="spec-label" style="color:rgba(255,255,255,0.6);">Engate</p>
+                        <p class="spec-value" style="color:#fff;font-size:clamp(1.2rem,2.5vw,2rem);">Sob medida</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div
-            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-stone-700 uppercase tracking-[0.3em]">
-            <p>© 2026 REBOQUES PRIME. TODOS OS DIREITOS RESERVADOS.</p>
-            <p class="flex items-center gap-2">ARTESANALMENTE FEITO NO MARANHÃO <span
-                    class="material-symbols-outlined text-[10px]">favorite</span></p>
-        </div>
-    </footer>
-    <!-- WhatsApp Floating Action -->
-    <a class="fixed bottom-8 right-8 bg-[#25D366] p-4 text-white z-40 shadow-[0_30px_60px_-15px_rgba(172,51,0,0.4)] hover:scale-110 transition-transform"
-        href="https://wa.me/5598991557039" target="_blank">
-        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">chat</span>
-    </a>
-    <!-- Lightbox Modal -->
-    <div id="lightbox" onclick="closeLightbox()">
-        <button class="absolute top-8 right-8 text-white text-5xl font-headline" onclick="closeLightbox()">×</button>
-        <img alt="Zoom view" id="lightbox-img" src="" />
+        <!-- ── S3: GALERIA ────────────────────── -->
+        <section class="fs-section" id="s-galeria"
+            data-label="Galeria de Fotos"
+            data-index="3">
+
+            <div class="gallery-header">
+                <div style="display:flex;align-items:baseline;gap:1.5rem;">
+                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">03</span>
+                    <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:#fff;text-transform:uppercase;line-height:1;">
+                        Galeria de Fotos
+                    </h2>
+                </div>
+                <span style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(255,255,255,0.2);text-transform:uppercase;">
+                    Clique para ampliar
+                </span>
+            </div>
+
+            <div class="gallery-fs" id="galeria">
+                <button class="gallery-fs-btn" onclick="openLightbox(0)"
+                    aria-label="Ampliar: Vista traseira"
+>
+                    <img alt="Vista traseira da caretinha Reboques Prime"
+                        src="assets/img/gallery1.jpg" loading="lazy" />
+                    <div class="gallery-fs-caption" aria-hidden="true">Vista Traseira</div>
+                </button>
+                <button class="gallery-fs-btn" onclick="openLightbox(1)"
+                    aria-label="Ampliar: Detalhes laterais">
+                    <img alt="Detalhes laterais da caretinha Reboques Prime"
+                        src="assets/img/gallery2.jpg" loading="lazy" />
+                    <div class="gallery-fs-caption" aria-hidden="true">Detalhes Laterais</div>
+                </button>
+                <button class="gallery-fs-btn" onclick="openLightbox(2)"
+                    aria-label="Ampliar: Estrutura completa">
+                    <img alt="Estrutura completa da caretinha Reboques Prime"
+                        src="assets/img/gallery3.jpg" loading="lazy" />
+                    <div class="gallery-fs-caption" aria-hidden="true">Estrutura Completa</div>
+                </button>
+            </div>
+        </section>
+
+        <!-- ── S4: CONTATO ────────────────────── -->
+        <section class="fs-section" id="s-contato"
+            data-label="Contato"
+            data-index="4">
+
+            <div class="contato-inner">
+                <p class="contato-eyebrow">Fale conosco</p>
+
+                <h2 class="contato-h2">
+                    Ficou<br/>
+                    Interessado?
+                </h2>
+
+                <div class="contato-info-row">
+                    <div class="info-line">
+                        <span class="info-key">Telefone</span>
+                        <span class="info-val">(98) 99155-7039</span>
+                    </div>
+                    <div class="info-line">
+                        <span class="info-key">Localização</span>
+                        <span class="info-val">Bacabeira, Maranhão</span>
+                    </div>
+                    <div class="info-line">
+                        <span class="info-key">Investimento</span>
+                        <span class="info-val accent">R$ 3.500,00</span>
+                    </div>
+                </div>
+
+                <a class="btn-wpp" style="align-self:flex-start;"
+                    href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
+                    target="_blank" rel="noopener noreferrer"
+                    aria-label="Conversar no WhatsApp">
+                    <span class="material-symbols-outlined" aria-hidden="true" style="font-variation-settings:'FILL' 1;">chat</span>
+                    Conversar no WhatsApp
+                </a>
+
+                <!-- Footer inline na última seção -->
+                <div style="position:absolute;bottom:2rem;left:5vw;right:5vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
+                    <span style="font-family:'Barlow',sans-serif;font-size:0.55rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
+                        © 2026 Reboques Prime
+                    </span>
+                    <span style="font-family:'Barlow',sans-serif;font-size:0.55rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
+                        Artesanalmente feito no Maranhão
+                    </span>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /scroll-wrap -->
+
+    <!-- ── LIGHTBOX ──────────────────────────── -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto"
+        onclick="if(event.target===this)closeLb()">
+        <button class="lb-nav prev" onclick="navLb(-1)" aria-label="Foto anterior">&#8249;</button>
+        <img alt="" id="lightbox-img" src="" />
+        <button class="lb-nav next" onclick="navLb(1)" aria-label="Próxima foto">&#8250;</button>
+        <button class="lb-close" onclick="closeLb()" aria-label="Fechar">×</button>
     </div>
+
     <script>
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
+    // ── Lightbox ───────────────────────────────
+    const imgs = [
+        { src: 'assets/img/gallery1.jpg', alt: 'Vista traseira da caretinha' },
+        { src: 'assets/img/gallery2.jpg', alt: 'Detalhes laterais da caretinha' },
+        { src: 'assets/img/gallery3.jpg', alt: 'Estrutura completa da caretinha' },
+    ];
+    let cur = 0;
 
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+    function openLightbox(i) {
+        cur = i;
+        const img = document.getElementById('lightbox-img');
+        img.src = imgs[cur].src; img.alt = imgs[cur].alt;
+        document.getElementById('lightbox').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+        document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function navLb(d) {
+        cur = (cur + d + imgs.length) % imgs.length;
+        const img = document.getElementById('lightbox-img');
+        img.src = imgs[cur].src; img.alt = imgs[cur].alt;
+    }
 
-        // Close on ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
+    // ── Navegação por dots + HUD ───────────────
+    const scrollWrap   = document.getElementById('scroll-wrap');
+    const sections     = Array.from(document.querySelectorAll('.fs-section'));
+    const dots         = Array.from(document.querySelectorAll('.nav-dot'));
+    const hudLabel     = document.getElementById('hud-label');
+    const hudCounter   = document.getElementById('hud-counter');
+    const navDotsEl    = document.getElementById('nav-dots');
+
+    // Clique nos dots → scroll para a seção
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const target = document.getElementById(dot.dataset.target);
+            target.scrollIntoView({ behavior: 'smooth' });
         });
+    });
+
+    // IntersectionObserver → atualiza dot ativo e HUD
+    const sectionLabels = {
+        's-hero':    'Reboques Prime',
+        's-specs':   'Especificações',
+        's-galeria': 'Galeria',
+        's-contato': 'Contato',
+    };
+
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const id    = entry.target.id;
+            const idx   = sections.indexOf(entry.target);
+            const dark  = entry.target.dataset.dotsDark === 'true';
+
+            // Atualiza dots
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+
+            // Alterna cor dos dots (seção clara vs escura)
+            navDotsEl.classList.toggle('dots-dark', dark);
+
+            // Atualiza HUD
+            hudLabel.textContent   = sectionLabels[id] || '';
+            hudCounter.textContent = `0${idx + 1} / 04`;
+            hudLabel.classList.toggle('dark-text', dark);
+            hudCounter.classList.toggle('dark-text', dark);
+        });
+    }, {
+        root: scrollWrap,
+        threshold: 0.55,
+    });
+
+    sections.forEach(s => obs.observe(s));
+
+    // ── Teclado ────────────────────────────────
+    document.addEventListener('keydown', e => {
+        // Lightbox aberto → só ESC/setas para foto
+        if (document.getElementById('lightbox').style.display === 'flex') {
+            if (e.key === 'Escape')      closeLb();
+            if (e.key === 'ArrowRight') navLb(1);
+            if (e.key === 'ArrowLeft')  navLb(-1);
+            return;
+        }
+
+        // Navegação entre seções
+        const activeDot = dots.findIndex(d => d.classList.contains('active'));
+        if (e.key === 'ArrowDown' && activeDot < sections.length - 1) {
+            e.preventDefault();
+            sections[activeDot + 1].scrollIntoView({ behavior: 'smooth' });
+        }
+        if (e.key === 'ArrowUp' && activeDot > 0) {
+            e.preventDefault();
+            sections[activeDot - 1].scrollIntoView({ behavior: 'smooth' });
+        }
+    });
     </script>
 </body>
-
 </html>
