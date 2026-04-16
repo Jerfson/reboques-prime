@@ -36,37 +36,22 @@
             --rule:     #d8d2c8;
         }
 
-        html, body { height: 100%; overflow: hidden; }
-
-        body {
-            font-family: "Barlow", sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        html { scroll-behavior: smooth; }
+        body { font-family: "Barlow", sans-serif; -webkit-font-smoothing: antialiased; }
         .font-hl { font-family: "Bebas Neue", sans-serif; }
         .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24; }
 
-        /* ── SCROLL CONTAINER ────────────────────── */
-        .scroll-wrap {
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-            /* Esconde a scrollbar mas mantém funcional */
-            scrollbar-width: none;
-        }
-        .scroll-wrap::-webkit-scrollbar { display: none; }
-
-        /* ── SEÇÕES FULL-SCREEN ──────────────────── */
+        /* ── SEÇÕES ───────────────────────────────── */
+        /* Hero, specs e galeria têm altura fixa para que flex:1 funcione */
         .fs-section {
-            height: 100vh;
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
+            min-height: 100vh;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
+        #s-specs,
+        #s-galeria { height: 100vh; }
 
         /* ── GRAIN ───────────────────────────────── */
         .grain {
@@ -75,82 +60,45 @@
             background-size: 128px;
         }
 
-        /* ── NAV DOTS (fixo, lado direito) ───────── */
+        /* ── NAV DOTS ────────────────────────────── */
         .nav-dots {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+            position: fixed; right: 2rem; top: 50%;
+            transform: translateY(-50%); z-index: 100;
+            display: flex; flex-direction: column; gap: 0.75rem;
         }
-
         .nav-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 0;               /* industrial: sem arredondamento */
-            background: rgba(255,255,255,0.2);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0;
-            transform: rotate(45deg);       /* losango */
+            width: 6px; height: 6px; border-radius: 0;
+            background: rgba(255,255,255,0.2); border: none;
+            cursor: pointer; transition: all 0.3s ease; padding: 0;
+            transform: rotate(45deg);
         }
-        .nav-dot:hover { background: rgba(255,255,255,0.5); transform: rotate(45deg) scale(1.4); }
-        .nav-dot.active { background: var(--forge-hi); transform: rotate(45deg) scale(1.5); }
+        .nav-dot:hover  { background: rgba(255,255,255,0.5); transform: rotate(45deg) scale(1.4); }
+        .nav-dot.active { background: var(--forge-hi);       transform: rotate(45deg) scale(1.5); }
 
-        /* Dots escuros nas seções claras */
-        .dots-dark .nav-dot { background: rgba(0,0,0,0.15); }
-        .dots-dark .nav-dot:hover { background: rgba(0,0,0,0.4); }
+        .dots-dark .nav-dot        { background: rgba(0,0,0,0.15); }
+        .dots-dark .nav-dot:hover  { background: rgba(0,0,0,0.4); }
         .dots-dark .nav-dot.active { background: var(--forge); }
 
-        /* ── COUNTER & LABEL (fixo, rodapé) ─────── */
+        /* ── HUD INFERIOR ────────────────────────── */
         .hud-bottom {
-            position: fixed;
-            bottom: 2rem;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0 2rem;
-            pointer-events: none;
+            position: fixed; bottom: 2rem; left: 0; right: 0;
+            z-index: 100; display: flex; justify-content: space-between;
+            align-items: flex-end; padding: 0 2rem; pointer-events: none;
         }
-
-        .hud-label {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.45em;
-            color: rgba(255,255,255,0.25);
-            text-transform: uppercase;
-            transition: color 0.4s;
+        .hud-label, .hud-counter {
+            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.45em; text-transform: uppercase; transition: color 0.4s;
         }
-        .hud-label.dark-text { color: rgba(0,0,0,0.2); }
+        .hud-label   { color: rgba(255,255,255,0.25); }
+        .hud-counter { color: rgba(255,255,255,0.2);  }
+        .hud-label.dark-text, .hud-counter.dark-text { color: rgba(0,0,0,0.2); }
 
-        .hud-counter {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.45em;
-            color: rgba(255,255,255,0.2);
-            transition: color 0.4s;
-        }
-        .hud-counter.dark-text { color: rgba(0,0,0,0.2); }
-
-        /* ── SCROLL HINT (seta de scroll) ────────── */
+        /* ── SCROLL HINT ─────────────────────────── */
         .scroll-hint {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
+            position: absolute; bottom: 2rem; left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.25rem;
-            animation: bounceDown 2s infinite;
-            opacity: 0.35;
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            animation: bounceDown 2s infinite; opacity: 0.35;
         }
         .scroll-hint span { font-family: "Bebas Neue", sans-serif; font-size: 0.55rem; letter-spacing: 0.4em; color: #fff; }
         @keyframes bounceDown {
@@ -158,113 +106,90 @@
             50%       { transform: translateX(-50%) translateY(6px); }
         }
 
-        /* ═══════════════════════════════════════════
-           SEÇÃO 1 — HERO
-        ═══════════════════════════════════════════ */
-        #s-hero {
-            background: var(--ink);
-            justify-content: center;
-            align-items: flex-start;
+        /* ── SCROLL REVEAL ───────────────────────── */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ══════════════════════════════════════════
+           S1 — HERO
+        ══════════════════════════════════════════ */
+        #s-hero { background: var(--ink); }
 
         .hero-bg-img {
             position: absolute; inset: 0;
             background: url('assets/img/hero.jpg') center/cover no-repeat;
-            opacity: 0.18;
-            filter: grayscale(60%);
+            opacity: 0.18; filter: grayscale(60%);
         }
 
         .hero-inner {
             position: relative; z-index: 1;
-            padding: 5vh 5vw;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 5vh 5vw; height: 100%;
+            display: flex; flex-direction: column; justify-content: center;
         }
 
         .hero-eyebrow {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.5em;
-            color: var(--forge-hi);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            font-family: "Bebas Neue", sans-serif; font-size: 0.7rem;
+            letter-spacing: 0.5em; color: var(--forge-hi);
+            text-transform: uppercase; margin-bottom: 1.5rem;
         }
 
         .hero-h1 {
             font-family: "Bebas Neue", sans-serif;
             font-size: clamp(4.5rem, 11vw, 10rem);
-            line-height: 0.9;
-            color: #fff;
-            text-transform: uppercase;
-            margin-bottom: 2.5rem;
-            max-width: 14ch;
+            line-height: 0.9; color: #fff; text-transform: uppercase;
+            margin-bottom: 2.5rem; max-width: 14ch;
         }
-
         .hero-h1 em { color: var(--forge-hi); font-style: normal; }
 
         .hero-row {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
             border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 2rem;
-            margin-bottom: 2.5rem;
+            padding-top: 2rem; margin-bottom: 2.5rem;
         }
 
         .hero-price-label {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.45em;
-            color: rgba(255,255,255,0.3);
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 0.25rem;
+            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.45em; color: rgba(255,255,255,0.3);
+            text-transform: uppercase; display: block; margin-bottom: 0.25rem;
         }
 
         .hero-price {
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: #fff;
-            line-height: 1;
+            font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; line-height: 1;
         }
 
         .hero-meta {
-            font-family: "Barlow", sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            color: rgba(255,255,255,0.3);
-            text-transform: uppercase;
-            line-height: 2;
+            font-family: "Barlow", sans-serif; font-size: 0.7rem;
+            letter-spacing: 0.3em; color: rgba(255,255,255,0.3);
+            text-transform: uppercase; line-height: 2;
         }
 
         .btn-wpp {
             display: inline-flex; align-items: center; gap: 0.75rem;
             background: #25D366; color: #fff;
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 1.2rem; letter-spacing: 0.1em;
-            padding: 1rem 2.5rem; text-decoration: none;
+            font-family: "Bebas Neue", sans-serif; font-size: 1.2rem;
+            letter-spacing: 0.1em; padding: 1rem 2.5rem; text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
         .btn-wpp:hover { background: #1fb356; transform: translateY(-2px); }
 
-        /* ═══════════════════════════════════════════
-           SEÇÃO 2 — SPECS
-        ═══════════════════════════════════════════ */
-        #s-specs {
-            background: var(--paper);
-            justify-content: flex-start;
-        }
+        /* ══════════════════════════════════════════
+           S2 — SPECS
+        ══════════════════════════════════════════ */
+        #s-specs { background: var(--paper); justify-content: flex-start; }
 
         .specs-header {
             padding: 4vh 5vw 2vh;
             border-bottom: 1px solid var(--rule);
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            flex-shrink: 0;
+            display: flex; align-items: baseline;
+            justify-content: space-between; flex-shrink: 0;
         }
 
         .specs-grid {
@@ -274,13 +199,14 @@
             grid-template-rows: repeat(2, 1fr);
         }
 
+        /* Cards com ícone agrupado ao conteúdo (não flutuante) */
         .spec-card {
-            padding: 4vh 3vw;
+            padding: 3vh 3vw;
             border-right: 1px solid var(--rule);
             border-bottom: 1px solid var(--rule);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 1rem;
             transition: background 0.2s;
             cursor: default;
         }
@@ -292,198 +218,199 @@
         .spec-card:nth-child(6) { border-bottom: none; }
 
         .spec-idx {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.4em;
-            color: var(--ink-mute);
+            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.4em; color: var(--ink-mute);
         }
 
+        /* Ícone + label + value agrupados no rodapé do card */
+        .spec-body { display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto; }
+
         .spec-icon {
-            font-size: 2rem;
-            color: var(--forge);
-            margin: auto 0;
+            font-size: 1.75rem; color: var(--forge);
         }
 
         .spec-label {
-            font-family: "Barlow", sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 0.4rem;
+            font-family: "Barlow", sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.35em; text-transform: uppercase; color: var(--ink-soft);
         }
 
         .spec-value {
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 3rem);
-            color: var(--ink);
-            line-height: 1;
+            font-size: clamp(1.8rem, 3.5vw, 3rem); color: var(--ink); line-height: 1;
         }
 
-        /* Mobile specs: 2 cols */
         @media (max-width: 640px) {
             .specs-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(3, 1fr);
             }
-            .spec-card:nth-child(3) { border-right: 1px solid var(--rule); }
-            .spec-card:nth-child(6) { border-right: none; }
+            .spec-card:nth-child(3)  { border-right: 1px solid var(--rule); }
             .spec-card:nth-child(2n) { border-right: none; }
+            .spec-card:nth-child(6)  { border-right: none; }
             .spec-card:nth-child(5),
-            .spec-card:nth-child(6) { border-bottom: none; }
-            .spec-card:nth-child(4) { border-bottom: 1px solid var(--rule); }
+            .spec-card:nth-child(6)  { border-bottom: none; }
+            .spec-card:nth-child(4)  { border-bottom: 1px solid var(--rule); }
         }
 
-        /* ═══════════════════════════════════════════
-           SEÇÃO 3 — GALERIA
-        ═══════════════════════════════════════════ */
-        #s-galeria {
-            background: #0f0e0a;
+        /* ══════════════════════════════════════════
+           S3 — DIFERENCIAIS
+        ══════════════════════════════════════════ */
+        #s-diferenciais { background: #1a1815; }
+
+        .dif-header {
+            padding: 4vh 5vw 2vh;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex; align-items: baseline;
+            justify-content: space-between; flex-shrink: 0;
         }
+
+        .dif-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .dif-card {
+            background: #1a1815;
+            padding: 4vh 4vw;
+            display: flex; flex-direction: column; gap: 1.25rem;
+            transition: background 0.2s;
+        }
+        .dif-card:hover { background: #201e19; }
+
+        .dif-num {
+            font-family: "Bebas Neue", sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.45em; color: var(--forge);
+        }
+
+        .dif-icon {
+            font-size: 2rem; color: rgba(255,255,255,0.25);
+            margin-top: auto;
+        }
+
+        .dif-title {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: #fff; line-height: 1;
+        }
+
+        .dif-text {
+            font-family: "Barlow", sans-serif; font-size: 0.8rem;
+            letter-spacing: 0.03em; color: rgba(255,255,255,0.35);
+            line-height: 1.7; max-width: 32ch;
+        }
+
+        @media (max-width: 640px) {
+            .dif-grid { grid-template-columns: 1fr; grid-template-rows: repeat(4, auto); }
+        }
+
+        /* ══════════════════════════════════════════
+           S4 — GALERIA
+        ══════════════════════════════════════════ */
+        #s-galeria { background: #0f0e0a; }
 
         .gallery-header {
             padding: 4vh 5vw 2vh;
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            flex-shrink: 0;
+            display: flex; align-items: baseline;
+            justify-content: space-between; flex-shrink: 0;
         }
 
         .gallery-fs {
             flex: 1;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            overflow: hidden;
+            gap: 2px; overflow: hidden;
         }
 
         .gallery-fs-btn {
-            position: relative;
-            overflow: hidden;
-            background: var(--ink);
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            display: block;
+            position: relative; overflow: hidden;
+            background: var(--ink); border: none; cursor: pointer;
+            padding: 0; display: block;
         }
-
         .gallery-fs-btn img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            display: block;
+            width: 100%; height: 100%; min-height: 200px;
+            object-fit: cover; display: block;
             filter: grayscale(15%);
             transition: transform 0.6s ease, filter 0.4s ease;
         }
-
-        .gallery-fs-btn:hover img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
+        .gallery-fs-btn:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
         .gallery-fs-caption {
             position: absolute; bottom: 0; left: 0; right: 0;
             padding: 1.5rem 1.25rem 1rem;
             background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.4em;
-            color: rgba(255,255,255,0.45);
-            text-transform: uppercase;
-            transition: color 0.3s;
+            font-family: "Bebas Neue", sans-serif; font-size: 0.75rem;
+            letter-spacing: 0.4em; color: rgba(255,255,255,0.45);
+            text-transform: uppercase; transition: color 0.3s;
         }
-
         .gallery-fs-btn:hover .gallery-fs-caption { color: rgba(255,255,255,0.9); }
 
-        /* Mobile galeria: 1 coluna com scroll horizontal */
         @media (max-width: 640px) {
             .gallery-fs {
                 grid-template-columns: repeat(3, 85vw);
-                overflow-x: auto;
-                overflow-y: hidden;
+                overflow-x: auto; overflow-y: hidden;
                 scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
             }
             .gallery-fs-btn { scroll-snap-align: start; }
         }
 
-        /* ═══════════════════════════════════════════
-           SEÇÃO 4 — CONTATO
-        ═══════════════════════════════════════════ */
-        #s-contato {
-            background: var(--ink);
-            justify-content: center;
-        }
+        /* ══════════════════════════════════════════
+           S5 — CONTATO
+        ══════════════════════════════════════════ */
+        #s-contato { background: var(--ink); }
 
         .contato-inner {
-            position: relative; z-index: 1;
-            padding: 5vh 5vw;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            position: relative; z-index: 1; padding: 5vh 5vw;
+            height: 100%; display: flex; flex-direction: column; justify-content: center;
         }
 
         .contato-eyebrow {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.5em;
-            color: var(--forge-hi);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            font-family: "Bebas Neue", sans-serif; font-size: 0.7rem;
+            letter-spacing: 0.5em; color: var(--forge-hi);
+            text-transform: uppercase; margin-bottom: 1.5rem;
         }
 
         .contato-h2 {
             font-family: "Bebas Neue", sans-serif;
             font-size: clamp(3.5rem, 9vw, 8rem);
-            line-height: 0.9;
-            color: #fff;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
+            line-height: 0.9; color: #fff;
+            text-transform: uppercase; margin-bottom: 3rem;
         }
 
         .contato-info-row {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
+            display: flex; flex-direction: column; gap: 0;
             margin-bottom: 3rem;
             border-top: 1px solid rgba(255,255,255,0.08);
         }
 
         .info-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             padding: 1.25rem 0;
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            flex-wrap: wrap; gap: 0.5rem;
         }
 
         .info-key {
-            font-family: "Barlow", sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.4em;
-            color: rgba(255,255,255,0.2);
-            text-transform: uppercase;
+            font-family: "Barlow", sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.4em; color: rgba(255,255,255,0.2); text-transform: uppercase;
         }
 
         .info-val {
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(1.4rem, 3vw, 2.2rem);
-            color: #fff;
-            line-height: 1;
+            font-size: clamp(1.4rem, 3vw, 2.2rem); color: #fff; line-height: 1;
         }
-
         .info-val.accent { color: var(--forge-hi); }
 
-        /* ═══════════════════════════════════════════
+        /* ══════════════════════════════════════════
            LIGHTBOX
-        ═══════════════════════════════════════════ */
+        ══════════════════════════════════════════ */
         #lightbox {
             display: none; position: fixed; z-index: 500; inset: 0;
-            background: rgba(0,0,0,0.97);
-            align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.97); align-items: center; justify-content: center;
         }
         #lightbox img { max-width: 85%; max-height: 80%; object-fit: contain; user-select: none; }
         .lb-nav {
@@ -491,8 +418,7 @@
             background: transparent; border: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.4); font-size: 2rem;
             padding: 0.75rem 1.1rem; cursor: pointer;
-            font-family: "Bebas Neue", sans-serif; line-height: 1;
-            transition: all 0.2s;
+            font-family: "Bebas Neue", sans-serif; line-height: 1; transition: all 0.2s;
         }
         .lb-nav:hover { border-color: var(--forge); color: var(--forge); }
         .lb-nav.prev { left: 2rem; }
@@ -502,18 +428,15 @@
             background: transparent; border: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.4); font-size: 1.75rem;
             padding: 0.25rem 0.75rem; cursor: pointer;
-            font-family: "Bebas Neue", sans-serif; line-height: 1;
-            transition: all 0.2s;
+            font-family: "Bebas Neue", sans-serif; line-height: 1; transition: all 0.2s;
         }
         .lb-close:hover { border-color: var(--forge); color: var(--forge); }
 
         /* ── WhatsApp float ── */
         .wpp-float {
             position: fixed; bottom: 2rem; right: 5rem;
-            background: #25D366; color: #fff;
-            padding: 0.875rem;
-            z-index: 100;
-            transition: transform 0.2s;
+            background: #25D366; color: #fff; padding: 0.875rem;
+            z-index: 100; transition: transform 0.2s;
             display: flex; align-items: center; justify-content: center;
         }
         .wpp-float:hover { transform: scale(1.1); }
@@ -523,47 +446,41 @@
 <body>
     <div aria-hidden="true" class="grain"></div>
 
-    <!-- ── NAVEGAÇÃO LATERAL ─────────────────── -->
+    <!-- NAV DOTS — 5 seções -->
     <nav class="nav-dots" id="nav-dots" aria-label="Navegação de seções">
-        <button class="nav-dot active" data-target="s-hero"    aria-label="Ir para o início"></button>
-        <button class="nav-dot"        data-target="s-specs"   aria-label="Ir para especificações"></button>
-        <button class="nav-dot"        data-target="s-galeria" aria-label="Ir para galeria"></button>
-        <button class="nav-dot"        data-target="s-contato" aria-label="Ir para contato"></button>
+        <button class="nav-dot active" data-target="s-hero"          aria-label="Ir para o início"></button>
+        <button class="nav-dot"        data-target="s-specs"         aria-label="Ir para especificações"></button>
+        <button class="nav-dot"        data-target="s-diferenciais"  aria-label="Ir para diferenciais"></button>
+        <button class="nav-dot"        data-target="s-galeria"       aria-label="Ir para galeria"></button>
+        <button class="nav-dot"        data-target="s-contato"       aria-label="Ir para contato"></button>
     </nav>
 
-    <!-- ── HUD INFERIOR ─────────────────────── -->
+    <!-- HUD INFERIOR -->
     <div class="hud-bottom" aria-hidden="true">
-        <span class="hud-label" id="hud-label">Hero</span>
-        <span class="hud-counter" id="hud-counter">01 / 04</span>
+        <span class="hud-label"   id="hud-label">Reboques Prime</span>
+        <span class="hud-counter" id="hud-counter">01 / 05</span>
     </div>
 
-    <!-- ── WHATSAPP FLOAT ───────────────────── -->
-    <a class="wpp-float" href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
+    <!-- WHATSAPP FLOAT -->
+    <a class="wpp-float"
+        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
         target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-        <span class="material-symbols-outlined" style="font-size:1.5rem;" aria-hidden="true" style="font-variation-settings:'FILL' 1;">chat</span>
+        <span class="material-symbols-outlined" aria-hidden="true"
+            style="font-size:1.5rem; font-variation-settings:'FILL' 1;">chat</span>
     </a>
 
-    <!-- ══════════════════════════════════════════
-         SCROLL CONTAINER
-    ══════════════════════════════════════════ -->
-    <div class="scroll-wrap" id="scroll-wrap">
+    <div id="scroll-wrap">
 
-        <!-- ── S1: HERO ──────────────────────── -->
-        <section class="fs-section" id="s-hero"
-            data-label="Reboques Prime"
-            data-index="1">
-
+        <!-- ══ S1: HERO ══════════════════════════ -->
+        <section class="fs-section" id="s-hero" data-label="Reboques Prime" data-index="1">
             <div class="hero-bg-img" aria-hidden="true"></div>
-
             <div class="hero-inner">
                 <p class="hero-eyebrow">Exclusivo para Motos</p>
-
                 <h1 class="hero-h1">
                     A Caretinha<br/>
                     Feita para<br/>
                     <em>a Sua Moto</em>
                 </h1>
-
                 <div class="hero-row">
                     <div>
                         <span class="hero-price-label">Investimento</span>
@@ -575,30 +492,25 @@
                         350 kg de carga
                     </p>
                 </div>
-
                 <a class="btn-wpp"
                     href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
                     target="_blank" rel="noopener noreferrer"
                     aria-label="Solicitar orçamento via WhatsApp">
-                    <span class="material-symbols-outlined" aria-hidden="true" style="font-variation-settings:'FILL' 1;">chat</span>
+                    <span class="material-symbols-outlined" aria-hidden="true"
+                        style="font-variation-settings:'FILL' 1;">chat</span>
                     Solicitar agora
                 </a>
             </div>
-
-            <!-- Scroll hint -->
             <div class="scroll-hint" aria-hidden="true">
                 <span class="material-symbols-outlined" style="color:rgba(255,255,255,0.3);font-size:1.5rem;">expand_more</span>
                 <span>Role</span>
             </div>
         </section>
 
-        <!-- ── S2: SPECS ──────────────────────── -->
+        <!-- ══ S2: SPECS ═════════════════════════ -->
         <section class="fs-section" id="s-specs"
-            data-label="Especificações Técnicas"
-            data-index="2"
-            data-dots-dark="true">
+            data-label="Especificações Técnicas" data-index="2" data-dots-dark="true">
 
-            <!-- Cabeçalho -->
             <div class="specs-header">
                 <div style="display:flex;align-items:baseline;gap:1.5rem;">
                     <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">02</span>
@@ -606,57 +518,53 @@
                         Especificações Técnicas
                     </h2>
                 </div>
-                <span style="font-family:'Barlow',sans-serif;font-size:0.6rem;letter-spacing:0.35em;color:var(--ink-mute);text-transform:uppercase;display:none;" class="md-show">
-                    Bacabeira · MA
-                </span>
             </div>
 
-            <!-- Grid de specs que preenche o restante do viewport -->
             <div class="specs-grid">
-                <div class="spec-card">
+                <div class="spec-card reveal reveal-delay-1">
                     <span class="spec-idx">01</span>
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">straighten</span>
-                    <div>
+                    <div class="spec-body">
+                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">straighten</span>
                         <p class="spec-label">Comprimento</p>
                         <p class="spec-value">0,90 m</p>
                     </div>
                 </div>
-                <div class="spec-card">
+                <div class="spec-card reveal reveal-delay-2">
                     <span class="spec-idx">02</span>
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">width</span>
-                    <div>
+                    <div class="spec-body">
+                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">width</span>
                         <p class="spec-label">Largura</p>
                         <p class="spec-value">1,00 m</p>
                     </div>
                 </div>
-                <div class="spec-card">
+                <div class="spec-card reveal reveal-delay-3">
                     <span class="spec-idx">03</span>
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">height</span>
-                    <div>
+                    <div class="spec-body">
+                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">height</span>
                         <p class="spec-label">Altura Laterais</p>
                         <p class="spec-value">0,30 m</p>
                     </div>
                 </div>
-                <div class="spec-card">
+                <div class="spec-card reveal reveal-delay-1">
                     <span class="spec-idx">04</span>
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">weight</span>
-                    <div>
+                    <div class="spec-body">
+                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">weight</span>
                         <p class="spec-label">Capacidade</p>
                         <p class="spec-value">350 kg</p>
                     </div>
                 </div>
-                <div class="spec-card">
+                <div class="spec-card reveal reveal-delay-2">
                     <span class="spec-idx">05</span>
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">settings_input_component</span>
-                    <div>
+                    <div class="spec-body">
+                        <span class="material-symbols-outlined spec-icon" aria-hidden="true">settings_input_component</span>
                         <p class="spec-label">Estrutura</p>
                         <p class="spec-value" style="font-size:clamp(1.2rem,2.5vw,2rem);">Perfil U 2" × 1/8</p>
                     </div>
                 </div>
-                <div class="spec-card" style="background:var(--forge);border-color:var(--forge);">
+                <div class="spec-card reveal reveal-delay-3" style="background:var(--forge);border-color:var(--forge);">
                     <span class="spec-idx" style="color:rgba(255,255,255,0.4);">06</span>
-                    <span class="material-symbols-outlined spec-icon" style="color:rgba(255,255,255,0.7);" aria-hidden="true">motorcycle</span>
-                    <div>
+                    <div class="spec-body">
+                        <span class="material-symbols-outlined spec-icon" style="color:rgba(255,255,255,0.7);" aria-hidden="true">motorcycle</span>
                         <p class="spec-label" style="color:rgba(255,255,255,0.6);">Engate</p>
                         <p class="spec-value" style="color:#fff;font-size:clamp(1.2rem,2.5vw,2rem);">Sob medida</p>
                     </div>
@@ -664,14 +572,66 @@
             </div>
         </section>
 
-        <!-- ── S3: GALERIA ────────────────────── -->
+        <!-- ══ S3: DIFERENCIAIS ═══════════════════ -->
+        <section class="fs-section" id="s-diferenciais"
+            data-label="Por que Reboques Prime?" data-index="3">
+
+            <div class="dif-header">
+                <div style="display:flex;align-items:baseline;gap:1.5rem;">
+                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">03</span>
+                    <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:#fff;text-transform:uppercase;line-height:1;">
+                        Por que Reboques Prime?
+                    </h2>
+                </div>
+            </div>
+
+            <div class="dif-grid">
+                <div class="dif-card reveal reveal-delay-1">
+                    <span class="dif-num">01</span>
+                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
+                        style="font-variation-settings:'FILL' 1;">handyman</span>
+                    <div>
+                        <p class="dif-title">100% Artesanal</p>
+                        <p class="dif-text">Cada reboque é montado à mão, peça por peça. Não somos uma fábrica — somos um ateliê de metal e madeira.</p>
+                    </div>
+                </div>
+                <div class="dif-card reveal reveal-delay-2">
+                    <span class="dif-num">02</span>
+                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
+                        style="font-variation-settings:'FILL' 1;">verified</span>
+                    <div>
+                        <p class="dif-title">Qualidade Garantida</p>
+                        <p class="dif-text">Soldagem profissional, madeira nobre Tatajuba e pintura automotiva resistente à corrosão.</p>
+                    </div>
+                </div>
+                <div class="dif-card reveal reveal-delay-3">
+                    <span class="dif-num">03</span>
+                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
+                        style="font-variation-settings:'FILL' 1;">build</span>
+                    <div>
+                        <p class="dif-title">Sob Medida</p>
+                        <p class="dif-text">Adaptamos o engate para o modelo da sua moto. Consulte compatibilidade antes de encomendar.</p>
+                    </div>
+                </div>
+                <div class="dif-card reveal reveal-delay-4">
+                    <span class="dif-num">04</span>
+                    <span class="material-symbols-outlined dif-icon" aria-hidden="true"
+                        style="font-variation-settings:'FILL' 1;">local_shipping</span>
+                    <div>
+                        <p class="dif-title">Entrega Regional</p>
+                        <p class="dif-text">Atendemos Bacabeira e região do Maranhão. Consulte disponibilidade para outras cidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ S4: GALERIA ════════════════════════ -->
         <section class="fs-section" id="s-galeria"
-            data-label="Galeria de Fotos"
-            data-index="3">
+            data-label="Galeria de Fotos" data-index="4">
 
             <div class="gallery-header">
                 <div style="display:flex;align-items:baseline;gap:1.5rem;">
-                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">03</span>
+                    <span class="font-hl" style="font-size:0.65rem;letter-spacing:0.45em;color:var(--forge);text-transform:uppercase;">04</span>
                     <h2 class="font-hl" style="font-size:clamp(1.8rem,4vw,3rem);color:#fff;text-transform:uppercase;line-height:1;">
                         Galeria de Fotos
                     </h2>
@@ -681,22 +641,21 @@
                 </span>
             </div>
 
-            <div class="gallery-fs" id="galeria">
-                <button class="gallery-fs-btn" onclick="openLightbox(0)"
-                    aria-label="Ampliar: Vista traseira"
->
+            <div class="gallery-fs">
+                <button class="gallery-fs-btn reveal reveal-delay-1"
+                    onclick="openLightbox(0)" aria-label="Ampliar: Vista traseira">
                     <img alt="Vista traseira da caretinha Reboques Prime"
                         src="assets/img/gallery1.jpg" loading="lazy" />
                     <div class="gallery-fs-caption" aria-hidden="true">Vista Traseira</div>
                 </button>
-                <button class="gallery-fs-btn" onclick="openLightbox(1)"
-                    aria-label="Ampliar: Detalhes laterais">
+                <button class="gallery-fs-btn reveal reveal-delay-2"
+                    onclick="openLightbox(1)" aria-label="Ampliar: Detalhes laterais">
                     <img alt="Detalhes laterais da caretinha Reboques Prime"
                         src="assets/img/gallery2.jpg" loading="lazy" />
                     <div class="gallery-fs-caption" aria-hidden="true">Detalhes Laterais</div>
                 </button>
-                <button class="gallery-fs-btn" onclick="openLightbox(2)"
-                    aria-label="Ampliar: Estrutura completa">
+                <button class="gallery-fs-btn reveal reveal-delay-3"
+                    onclick="openLightbox(2)" aria-label="Ampliar: Estrutura completa">
                     <img alt="Estrutura completa da caretinha Reboques Prime"
                         src="assets/img/gallery3.jpg" loading="lazy" />
                     <div class="gallery-fs-caption" aria-hidden="true">Estrutura Completa</div>
@@ -704,20 +663,16 @@
             </div>
         </section>
 
-        <!-- ── S4: CONTATO ────────────────────── -->
+        <!-- ══ S5: CONTATO ════════════════════════ -->
         <section class="fs-section" id="s-contato"
-            data-label="Contato"
-            data-index="4">
+            data-label="Contato" data-index="5">
 
             <div class="contato-inner">
-                <p class="contato-eyebrow">Fale conosco</p>
-
-                <h2 class="contato-h2">
-                    Ficou<br/>
-                    Interessado?
+                <p class="contato-eyebrow reveal">Fale conosco</p>
+                <h2 class="contato-h2 reveal">
+                    Ficou<br/>Interessado?
                 </h2>
-
-                <div class="contato-info-row">
+                <div class="contato-info-row reveal">
                     <div class="info-line">
                         <span class="info-key">Telefone</span>
                         <span class="info-val">(98) 99155-7039</span>
@@ -731,16 +686,14 @@
                         <span class="info-val accent">R$ 3.500,00</span>
                     </div>
                 </div>
-
-                <a class="btn-wpp" style="align-self:flex-start;"
+                <a class="btn-wpp reveal" style="align-self:flex-start;"
                     href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
                     target="_blank" rel="noopener noreferrer"
                     aria-label="Conversar no WhatsApp">
-                    <span class="material-symbols-outlined" aria-hidden="true" style="font-variation-settings:'FILL' 1;">chat</span>
+                    <span class="material-symbols-outlined" aria-hidden="true"
+                        style="font-variation-settings:'FILL' 1;">chat</span>
                     Conversar no WhatsApp
                 </a>
-
-                <!-- Footer inline na última seção -->
                 <div style="position:absolute;bottom:2rem;left:5vw;right:5vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
                     <span style="font-family:'Barlow',sans-serif;font-size:0.55rem;letter-spacing:0.35em;color:rgba(255,255,255,0.12);text-transform:uppercase;">
                         © 2026 Reboques Prime
@@ -754,7 +707,7 @@
 
     </div><!-- /scroll-wrap -->
 
-    <!-- ── LIGHTBOX ──────────────────────────── -->
+    <!-- LIGHTBOX -->
     <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto"
         onclick="if(event.target===this)closeLb()">
         <button class="lb-nav prev" onclick="navLb(-1)" aria-label="Foto anterior">&#8249;</button>
@@ -788,79 +741,65 @@
         const img = document.getElementById('lightbox-img');
         img.src = imgs[cur].src; img.alt = imgs[cur].alt;
     }
+    document.addEventListener('keydown', e => {
+        if (document.getElementById('lightbox').style.display !== 'flex') return;
+        if (e.key === 'Escape')      closeLb();
+        if (e.key === 'ArrowRight') navLb(1);
+        if (e.key === 'ArrowLeft')  navLb(-1);
+    });
 
-    // ── Navegação por dots + HUD ───────────────
-    const scrollWrap   = document.getElementById('scroll-wrap');
-    const sections     = Array.from(document.querySelectorAll('.fs-section'));
-    const dots         = Array.from(document.querySelectorAll('.nav-dot'));
-    const hudLabel     = document.getElementById('hud-label');
-    const hudCounter   = document.getElementById('hud-counter');
-    const navDotsEl    = document.getElementById('nav-dots');
+    // ── Dots + HUD ─────────────────────────────
+    const sections   = Array.from(document.querySelectorAll('.fs-section'));
+    const dots       = Array.from(document.querySelectorAll('.nav-dot'));
+    const hudLabel   = document.getElementById('hud-label');
+    const hudCounter = document.getElementById('hud-counter');
+    const navDotsEl  = document.getElementById('nav-dots');
+    const total      = sections.length;
 
-    // Clique nos dots → scroll para a seção
+    const sectionLabels = {
+        's-hero':         'Reboques Prime',
+        's-specs':        'Especificações',
+        's-diferenciais': 'Diferenciais',
+        's-galeria':      'Galeria',
+        's-contato':      'Contato',
+    };
+
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
-            const target = document.getElementById(dot.dataset.target);
-            target.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById(dot.dataset.target)
+                .scrollIntoView({ behavior: 'smooth' });
         });
     });
 
-    // IntersectionObserver → atualiza dot ativo e HUD
-    const sectionLabels = {
-        's-hero':    'Reboques Prime',
-        's-specs':   'Especificações',
-        's-galeria': 'Galeria',
-        's-contato': 'Contato',
-    };
-
-    const obs = new IntersectionObserver(entries => {
+    // IntersectionObserver: atualiza HUD + dots
+    const hudObs = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
+            const id   = entry.target.id;
+            const idx  = sections.indexOf(entry.target);
+            const dark = entry.target.dataset.dotsDark === 'true';
 
-            const id    = entry.target.id;
-            const idx   = sections.indexOf(entry.target);
-            const dark  = entry.target.dataset.dotsDark === 'true';
-
-            // Atualiza dots
             dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-
-            // Alterna cor dos dots (seção clara vs escura)
             navDotsEl.classList.toggle('dots-dark', dark);
-
-            // Atualiza HUD
             hudLabel.textContent   = sectionLabels[id] || '';
-            hudCounter.textContent = `0${idx + 1} / 04`;
+            hudCounter.textContent = `0${idx + 1} / 0${total}`;
             hudLabel.classList.toggle('dark-text', dark);
             hudCounter.classList.toggle('dark-text', dark);
         });
-    }, {
-        root: scrollWrap,
-        threshold: 0.55,
-    });
+    }, { root: null, threshold: 0.55 });
 
-    sections.forEach(s => obs.observe(s));
+    // IntersectionObserver: scroll reveal
+    const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObs.unobserve(entry.target);
+            }
+        });
+    }, { root: null, threshold: 0.12 });
 
-    // ── Teclado ────────────────────────────────
-    document.addEventListener('keydown', e => {
-        // Lightbox aberto → só ESC/setas para foto
-        if (document.getElementById('lightbox').style.display === 'flex') {
-            if (e.key === 'Escape')      closeLb();
-            if (e.key === 'ArrowRight') navLb(1);
-            if (e.key === 'ArrowLeft')  navLb(-1);
-            return;
-        }
-
-        // Navegação entre seções
-        const activeDot = dots.findIndex(d => d.classList.contains('active'));
-        if (e.key === 'ArrowDown' && activeDot < sections.length - 1) {
-            e.preventDefault();
-            sections[activeDot + 1].scrollIntoView({ behavior: 'smooth' });
-        }
-        if (e.key === 'ArrowUp' && activeDot > 0) {
-            e.preventDefault();
-            sections[activeDot - 1].scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+    sections.forEach(s => hudObs.observe(s));
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
     </script>
 </body>
 </html>
