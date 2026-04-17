@@ -279,17 +279,18 @@
             background: linear-gradient(to right, transparent, #ac3300, #d4450c, #ac3300, transparent);
         }
 
-        /* Gallery: aspect-ratio ao invés de altura fixa */
+        /* Gallery: Proporção 4:3 para evitar zoom em fotos horizontais */
         .gallery-img {
             width: 100%;
-            aspect-ratio: 3/4;
+            aspect-ratio: 4/3;
             object-fit: cover;
             display: block;
         }
 
         @media (min-width: 768px) {
             .gallery-img {
-                aspect-ratio: 2/3;
+                aspect-ratio: 4/3;
+                /* Padronizado 4:3 também no desktop */
             }
         }
     </style>
