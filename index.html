@@ -95,9 +95,7 @@
         }
     </script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: "Barlow", sans-serif;
@@ -105,15 +103,12 @@
             color: #f0ebe3;
         }
 
-        .font-headline {
-            font-family: "Bebas Neue", sans-serif;
-        }
+        .font-headline { font-family: "Bebas Neue", sans-serif; }
 
         .material-symbols-outlined {
             font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
         }
 
-        /* Skip to content */
         .skip-link {
             position: absolute;
             top: -100%;
@@ -129,16 +124,11 @@
             text-decoration: none;
         }
 
-        .skip-link:focus {
-            top: 1rem;
-        }
+        .skip-link:focus { top: 1rem; }
 
-        /* Top nav */
         #top-nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
             background: rgba(15, 14, 10, 0);
             backdrop-filter: blur(0px);
@@ -166,27 +156,12 @@
             background-size: 128px;
         }
 
-        .bg-dark-1 {
-            background: #0f0e0a;
-        }
+        .bg-dark-1 { background: #0f0e0a; }
+        .bg-dark-2 { background: #141210; }
+        .bg-dark-3 { background: #1a1815; }
+        .bg-dark-card-a { background: #1e1c18; }
+        .bg-dark-card-b { background: #242118; }
 
-        .bg-dark-2 {
-            background: #141210;
-        }
-
-        .bg-dark-3 {
-            background: #1a1815;
-        }
-
-        .bg-dark-card-a {
-            background: #1e1c18;
-        }
-
-        .bg-dark-card-b {
-            background: #242118;
-        }
-
-        /* Diferenciais */
         .dif-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -198,14 +173,10 @@
             transition: background 0.3s;
         }
 
-        .dif-item:hover {
-            background: rgba(172, 51, 0, 0.08);
-        }
+        .dif-item:hover { background: rgba(172, 51, 0, 0.08); }
 
         @media (max-width: 640px) {
-            .dif-grid {
-                grid-template-columns: 1fr;
-            }
+            .dif-grid { grid-template-columns: 1fr; }
         }
 
         #lightbox {
@@ -240,19 +211,13 @@
             line-height: 1;
         }
 
-        .lb-nav:hover,
-        .lb-nav:focus {
+        .lb-nav:hover, .lb-nav:focus {
             background: rgba(172, 51, 0, 0.8);
             outline: none;
         }
 
-        .lb-nav.prev {
-            left: 1.5rem;
-        }
-
-        .lb-nav.next {
-            right: 1.5rem;
-        }
+        .lb-nav.prev { left: 1.5rem; }
+        .lb-nav.next { right: 1.5rem; }
 
         #lb-counter {
             position: absolute;
@@ -265,20 +230,11 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        .fade-up {
-            animation: fadeUp 1s ease-out forwards;
-        }
+        .fade-up { animation: fadeUp 1s ease-out forwards; }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .reveal {
@@ -297,7 +253,6 @@
             background: linear-gradient(to right, transparent, #ac3300, #d4450c, #ac3300, transparent);
         }
 
-        /* Gallery: Proporção 4:3 para evitar zoom em fotos horizontais */
         .gallery-img {
             width: 100%;
             aspect-ratio: 4/3;
@@ -305,18 +260,43 @@
             display: block;
         }
 
-        @media (min-width: 768px) {
-            .gallery-img {
-                aspect-ratio: 4/3;
-                /* Padronizado 4:3 também no desktop */
-            }
+        /* Formulário de captura */
+        .lead-input {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #f0ebe3;
+            font-family: "Barlow", sans-serif;
+            font-size: 1rem;
+            padding: 1rem 1.25rem;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .lead-input::placeholder { color: rgba(255,255,255,0.3); }
+
+        .lead-input:focus {
+            border-color: #c47a35;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .lead-input:invalid:not(:placeholder-shown) {
+            border-color: #ac3300;
+        }
+
+        /* Sucesso */
+        #form-success {
+            display: none;
+        }
+
+        #form-success.visible {
+            display: flex;
         }
     </style>
 </head>
 
 <body class="antialiased">
     <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
-
     <div aria-hidden="true" class="grain-overlay"></div>
 
     <!-- Navegação fixa -->
@@ -332,11 +312,10 @@
                 <li><a href="#specs" class="hover:text-white transition-colors">Especificações</a></li>
                 <li><a href="#diferenciais" class="hover:text-white transition-colors">Diferenciais</a></li>
                 <li><a href="#galeria" class="hover:text-white transition-colors">Galeria</a></li>
-                <li><a href="#contato" class="hover:text-white transition-colors">Contato</a></li>
+                <li><a href="#orcamento" class="hover:text-white transition-colors">Orçamento</a></li>
             </ul>
             <a class="bg-primary hover:bg-primary-container transition-colors px-5 py-2 font-headline text-sm tracking-[0.2em] text-white hidden md:block"
-                href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20solicitar%20um%20orçamento."
-                target="_blank" rel="noopener noreferrer">
+                href="#orcamento">
                 ORÇAMENTO
             </a>
         </div>
@@ -348,16 +327,12 @@
         <header id="inicio"
             class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center bg-[#0f0e0a] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <!-- Imagem para Celular -->
                 <img alt="Caretinha artesanal Reboques Prime - Mobile"
                     class="block md:hidden w-full h-full object-cover opacity-40 object-center transition-opacity duration-1000"
                     src="assets/img/gallery4.jpg" width="1080" height="1920" />
-
-                <!-- Imagem para Desktop (Original) -->
                 <img alt="Caretinha artesanal Reboques Prime - Desktop"
                     class="hidden md:block w-full h-full object-cover opacity-40 object-[60%_center] transition-opacity duration-1000"
                     src="assets/img/hero.jpg" width="1920" height="1080" />
-
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-[#0f0e0a] via-[#0f0e0a]/20 to-[#0f0e0a]/70 md:bg-gradient-to-b md:from-[#0f0e0a]/80 md:via-[#0f0e0a]/20 md:to-[#0f0e0a]">
                 </div>
@@ -397,14 +372,13 @@
                     </div>
 
                     <a class="group relative bg-[#2ecc71] hover:bg-[#27ae60] transition-all transform hover:scale-105 active:scale-95 px-8 py-5 md:px-12 md:py-6 text-white font-headline text-xl md:text-2xl flex items-center gap-4 shadow-[0_20px_50px_rgba(46,204,113,0.3)] w-full md:w-auto justify-center rounded-xl overflow-hidden"
-                        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-                        target="_blank" rel="noopener noreferrer" aria-label="Solicitar orçamento via WhatsApp">
+                        href="#orcamento" aria-label="Solicitar orçamento">
                         <div
                             class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         </div>
                         <span class="material-symbols-outlined text-3xl md:text-4xl relative z-10" aria-hidden="true"
-                            style="font-variation-settings: 'FILL' 1;">chat</span>
-                        <span class="relative z-10">SOLICITAR AGORA</span>
+                            style="font-variation-settings: 'FILL' 1;">request_quote</span>
+                        <span class="relative z-10">SOLICITAR ORÇAMENTO</span>
                     </a>
                 </div>
             </div>
@@ -427,45 +401,33 @@
                     <div class="h-1 w-24 bg-secondary mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-                    <div
-                        class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4"
-                            aria-hidden="true">straighten</span>
+                    <div class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">straighten</span>
                         <h3 class="font-headline text-2xl mb-2 text-white">Comprimento</h3>
                         <p class="font-body text-lg text-on-surface-variant">0,90m</p>
                     </div>
-                    <div
-                        class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4"
-                            aria-hidden="true">width</span>
+                    <div class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">width</span>
                         <h3 class="font-headline text-2xl mb-2 text-white">Largura</h3>
                         <p class="font-body text-lg text-on-surface-variant">1,00m</p>
                     </div>
-                    <div
-                        class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4"
-                            aria-hidden="true">height</span>
+                    <div class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">height</span>
                         <h3 class="font-headline text-2xl mb-2 text-white">Altura Laterais</h3>
                         <p class="font-body text-lg text-on-surface-variant">0,30m</p>
                     </div>
-                    <div
-                        class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4"
-                            aria-hidden="true">weight</span>
+                    <div class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">weight</span>
                         <h3 class="font-headline text-2xl mb-2 text-white">Capacidade</h3>
                         <p class="font-body text-lg text-on-surface-variant">350 kg</p>
                     </div>
-                    <div
-                        class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4"
-                            aria-hidden="true">settings_input_component</span>
+                    <div class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">settings_input_component</span>
                         <h3 class="font-headline text-2xl mb-2 text-white">Estrutura</h3>
                         <p class="font-body text-lg text-on-surface-variant">Perfil U 2" x 1/8</p>
                     </div>
-                    <div
-                        class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4"
-                            aria-hidden="true">motorcycle</span>
+                    <div class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">motorcycle</span>
                         <h3 class="font-headline text-2xl mb-2 text-white">Engate</h3>
                         <p class="font-body text-lg text-on-surface-variant">Exclusivo para Motos</p>
                     </div>
@@ -484,29 +446,25 @@
                 </div>
                 <div class="dif-grid reveal">
                     <div class="dif-item">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block"
-                            aria-hidden="true">handyman</span>
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">handyman</span>
                         <h3 class="font-headline text-2xl text-white mb-2">100% Artesanal</h3>
                         <p class="font-body text-sm text-stone-400 leading-relaxed">Cada peça é construída à mão, com
                             atenção em cada detalhe — do corte do perfil ao acabamento final.</p>
                     </div>
                     <div class="dif-item">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block"
-                            aria-hidden="true">forest</span>
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">forest</span>
                         <h3 class="font-headline text-2xl text-white mb-2">Madeira Tatajuba</h3>
                         <p class="font-body text-sm text-stone-400 leading-relaxed">Piso em Tatajuba, madeira nativa
                             resistente à umidade, impacto e carga contínua.</p>
                     </div>
                     <div class="dif-item">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block"
-                            aria-hidden="true">fitness_center</span>
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">fitness_center</span>
                         <h3 class="font-headline text-2xl text-white mb-2">350kg de Capacidade</h3>
                         <p class="font-body text-sm text-stone-400 leading-relaxed">Estrutura em Perfil U 2" x 1/8
                             dimensionada para cargas reais, não nominais.</p>
                     </div>
                     <div class="dif-item">
-                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block"
-                            aria-hidden="true">build_circle</span>
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">build_circle</span>
                         <h3 class="font-headline text-2xl text-white mb-2">Engate Exclusivo</h3>
                         <p class="font-body text-sm text-stone-400 leading-relaxed">Desenvolvido especificamente para
                             motocicletas — seguro, estável e de fácil acoplamento.</p>
@@ -564,28 +522,63 @@
 
         <div class="heat-line"></div>
 
-        <!-- CONTATO -->
-        <section id="contato" class="bg-dark-3 py-32 px-6 md:px-24 text-white text-center">
-            <div class="max-w-4xl mx-auto reveal">
-                <h2 class="font-headline text-6xl md:text-7xl mb-6">Ficou Interessado?</h2>
-                <p class="font-body text-xl text-stone-400 mb-10 uppercase tracking-widest leading-relaxed">
-                    Entre em contato diretamente pelo WhatsApp para garantir o seu reboque artesanal personalizado.
+        <!-- FORMULÁRIO DE CAPTURA DE LEAD -->
+        <section id="orcamento" class="py-32 px-6 md:px-24 bg-dark-2">
+            <div class="max-w-2xl mx-auto reveal">
+                <div class="text-center mb-14">
+                    <h2 class="font-headline text-5xl md:text-7xl text-white mb-4 uppercase">Solicite seu<br /><span class="text-primary">Orçamento</span></h2>
+                    <p class="font-body text-stone-400 text-lg leading-relaxed">
+                        Preencha abaixo e entraremos em contato via WhatsApp em instantes.
+                    </p>
+                </div>
+
+                <!-- Formulário -->
+                <form id="lead-form" novalidate class="flex flex-col gap-4">
+                    <div>
+                        <label for="lead-nome" class="block text-xs font-headline tracking-[0.3em] text-stone-400 uppercase mb-2">Seu Nome</label>
+                        <input
+                            id="lead-nome"
+                            type="text"
+                            placeholder="Ex: João Silva"
+                            required
+                            minlength="3"
+                            autocomplete="name"
+                            class="lead-input" />
+                    </div>
+                    <div>
+                        <label for="lead-telefone" class="block text-xs font-headline tracking-[0.3em] text-stone-400 uppercase mb-2">Seu WhatsApp</label>
+                        <input
+                            id="lead-telefone"
+                            type="tel"
+                            placeholder="(98) 99999-9999"
+                            required
+                            maxlength="15"
+                            autocomplete="tel"
+                            class="lead-input" />
+                    </div>
+                    <p id="form-error" class="text-primary font-body text-sm hidden">Por favor, preencha seu nome e WhatsApp corretamente.</p>
+                    <button
+                        type="submit"
+                        class="mt-2 bg-[#25D366] hover:bg-[#1fb356] transition-all px-8 py-5 text-white font-headline text-2xl tracking-[0.15em] flex items-center justify-center gap-3 w-full">
+                        <span class="material-symbols-outlined text-3xl" aria-hidden="true"
+                            style="font-variation-settings: 'FILL' 1;">chat</span>
+                        ENVIAR VIA WHATSAPP
+                    </button>
+                </form>
+
+                <!-- Mensagem de sucesso -->
+                <div id="form-success" class="flex-col items-center text-center gap-6 py-8">
+                    <span class="material-symbols-outlined text-6xl text-[#25D366]"
+                        style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    <div>
+                        <p class="font-headline text-3xl text-white mb-2">Mensagem Enviada!</p>
+                        <p class="font-body text-stone-400">Abrimos o WhatsApp com seus dados. Responderemos em breve.</p>
+                    </div>
+                </div>
+
+                <p class="text-center text-stone-600 text-xs uppercase tracking-widest mt-8 font-body">
+                    Seus dados são usados apenas para retorno do orçamento.
                 </p>
-                <div class="mb-12">
-                    <span class="block text-secondary text-sm tracking-widest uppercase mb-2">Telefone Direto</span>
-                    <p class="text-4xl md:text-5xl font-headline tracking-tighter">(98) 99155-7039</p>
-                </div>
-                <a class="bg-[#25D366] hover:bg-[#1fb356] transition-all px-12 py-6 text-white font-headline text-3xl inline-flex items-center gap-4"
-                    href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-                    target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
-                    <span class="material-symbols-outlined text-4xl" aria-hidden="true"
-                        style="font-variation-settings: 'FILL' 1;">chat</span>
-                    CONVERSAR NO WHATSAPP
-                </a>
-                <div class="mt-16 text-stone-500 flex flex-col items-center gap-2">
-                    <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-                    <p class="font-body uppercase tracking-widest text-sm">Bacabeira, Maranhão — Brasil</p>
-                </div>
             </div>
         </section>
 
@@ -599,10 +592,6 @@
                         class="text-secondary">PRIME</span></h4>
                 <p class="text-stone-500 font-body text-sm leading-relaxed uppercase tracking-tighter">Especialistas em
                     carretinhas artesanais de alto padrão para motociclistas exigentes.</p>
-                <a class="w-12 h-12 border border-white/10 flex items-center justify-center hover:bg-secondary transition-all hover:scale-110 inline-flex"
-                    href="https://wa.me/5598991557039" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <span class="material-symbols-outlined text-white opacity-70" aria-hidden="true">chat</span>
-                </a>
             </div>
             <div class="space-y-6">
                 <span class="text-stone-400 text-xs uppercase tracking-widest font-bold">Navegação</span>
@@ -611,28 +600,23 @@
                     <li><a class="hover:text-secondary transition-colors" href="#specs">Especificações</a></li>
                     <li><a class="hover:text-secondary transition-colors" href="#diferenciais">Diferenciais</a></li>
                     <li><a class="hover:text-secondary transition-colors" href="#galeria">Galeria</a></li>
-                    <li><a class="hover:text-secondary transition-colors"
-                            href="https://wa.me/5598991557039?text=Quero%20solicitar%20um%20orçamento." target="_blank"
-                            rel="noopener noreferrer">Solicitar Orçamento</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#orcamento">Solicitar Orçamento</a></li>
                 </ul>
             </div>
             <div class="space-y-6">
                 <span class="text-stone-400 text-xs uppercase tracking-widest font-bold">Contato Direto</span>
                 <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-secondary text-3xl"
-                        aria-hidden="true">phone_iphone</span>
+                    <span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">phone_iphone</span>
                     <div>
                         <p class="text-white font-headline text-2xl tracking-tighter">(98) 99155-7039</p>
                         <p class="text-stone-500 text-[10px] uppercase font-bold tracking-widest">WhatsApp / Celular</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-secondary text-3xl"
-                        aria-hidden="true">location_on</span>
+                    <span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">location_on</span>
                     <div>
                         <p class="text-stone-400 font-body text-sm">Bacabeira, Maranhão — Brasil</p>
-                        <p class="text-stone-500 text-[10px] uppercase font-bold tracking-widest">Atendimento Regional
-                        </p>
+                        <p class="text-stone-500 text-[10px] uppercase font-bold tracking-widest">Atendimento Regional</p>
                     </div>
                 </div>
             </div>
@@ -643,14 +627,6 @@
             <p>ARTESANALMENTE FEITO NO MARANHÃO</p>
         </div>
     </footer>
-
-    <!-- WhatsApp Float -->
-    <a class="fixed bottom-8 right-8 bg-[#25D366] p-4 text-white z-40 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:scale-110 transition-transform"
-        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-        target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-        <span class="material-symbols-outlined text-4xl" aria-hidden="true"
-            style="font-variation-settings: 'FILL' 1;">chat</span>
-    </a>
 
     <!-- Lightbox -->
     <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto">
@@ -663,7 +639,14 @@
             id="lb-close" aria-label="Fechar">×</button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        const { createClient } = supabase;
+        const db = createClient(
+            'https://ilyaaszgkckmrqsgmutp.supabase.co',
+            'sb_publishable_v-FSxcVAZ5-CZLyL2EMJoA_UexN4nnI'
+        );
+
         document.getElementById('footer-year').textContent = new Date().getFullYear();
 
         // Nav scroll effect
@@ -715,7 +698,6 @@
             updateLb();
         }
 
-        // Focus trap
         lb.addEventListener('keydown', e => {
             if (e.key === 'Escape') { closeLb(); return; }
             if (e.key === 'ArrowRight') { navLb(1); return; }
@@ -760,16 +742,55 @@
         }, { threshold: 0.3 });
         if (specsSection) specsObs.observe(specsSection);
 
-        // Meta Pixel: Lead em todos os links do WhatsApp
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-            link.addEventListener('click', () => fbq('track', 'Lead'));
+        // Máscara de telefone
+        const telInput = document.getElementById('lead-telefone');
+        telInput.addEventListener('input', () => {
+            let v = telInput.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length > 6) {
+                v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+            } else if (v.length > 2) {
+                v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+            } else if (v.length > 0) {
+                v = `(${v}`;
+            }
+            telInput.value = v;
         });
 
-        // Meta Pixel: Contact no botão da seção de contato
-        const contactWaBtn = document.querySelector('#contato a[href*="wa.me"]');
-        if (contactWaBtn) {
-            contactWaBtn.addEventListener('click', () => fbq('track', 'Contact'));
-        }
+        // Formulário de captura de lead
+        const leadForm = document.getElementById('lead-form');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+
+        leadForm.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            const nome = document.getElementById('lead-nome').value.trim();
+            const telefone = document.getElementById('lead-telefone').value.trim();
+            const telLimpo = telefone.replace(/\D/g, '');
+
+            if (nome.length < 3 || telLimpo.length < 10) {
+                formError.classList.remove('hidden');
+                return;
+            }
+
+            formError.classList.add('hidden');
+
+            // Salva lead no Supabase
+            await db.from('leads').insert({ nome, telefone });
+
+            // Dispara evento Lead no Meta Pixel
+            fbq('track', 'Lead', { content_name: 'Formulário Orçamento' });
+
+            // Abre WhatsApp com os dados preenchidos
+            const msg = encodeURIComponent(
+                `Olá! Me chamo *${nome}* e meu WhatsApp é *${telefone}*. Vi o site e quero solicitar um orçamento da caretinha.`
+            );
+            window.open(`https://wa.me/5598991557039?text=${msg}`, '_blank');
+
+            // Mostra mensagem de sucesso
+            leadForm.style.display = 'none';
+            formSuccess.classList.add('visible');
+        });
     </script>
 </body>
 
