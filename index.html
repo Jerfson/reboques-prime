@@ -117,7 +117,9 @@
     <header class="relative min-h-screen flex items-center justify-center bg-black py-16">
         <div class="absolute inset-0 z-0">
             <img alt="Caretinha artesanal Reboques Prime acoplada a uma moto"
-                class="w-full h-full object-cover opacity-70" src="assets/img/hero.jpg" />
+                class="w-full h-full object-cover opacity-70 md:hidden" src="assets/img/gallery4.jpg" />
+            <img alt="Caretinha artesanal Reboques Prime acoplada a uma moto"
+                class="w-full h-full object-cover opacity-70 hidden md:block" src="assets/img/hero.jpg" />
             <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/30 to-black/90"></div>
         </div>
         <div class="relative z-10 w-full max-w-5xl px-8 md:px-12 text-center fade-up">
@@ -222,6 +224,14 @@
                         <p class="text-white font-headline text-lg tracking-widest">ESTRUTURA COMPLETA</p>
                     </div>
                 </button>
+                <button class="md:hidden gallery-item overflow-hidden relative group cursor-pointer shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary reveal"
+                    onclick="openLightbox(3)" aria-label="Ampliar: Detalhes adicionais">
+                    <img alt="Detalhes adicionais da caretinha" class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
+                        src="assets/img/gallery4.jpg" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8" aria-hidden="true">
+                        <p class="text-white font-headline text-lg tracking-widest">DETALHES ADICIONAIS</p>
+                    </div>
+                </button>
             </div>
         </div>
     </section>
@@ -316,6 +326,7 @@
             { src: 'assets/img/gallery1.jpg', alt: 'Vista traseira da caretinha' },
             { src: 'assets/img/gallery2.jpg', alt: 'Detalhes laterais da caretinha' },
             { src: 'assets/img/gallery3.jpg', alt: 'Estrutura completa da caretinha' },
+            { src: 'assets/img/gallery4.jpg', alt: 'Detalhes adicionais da caretinha' },
         ];
         let cur = 0;
 
