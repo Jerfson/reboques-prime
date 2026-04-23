@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>REBOQUES PRIME - Reboque Artesanal para Moto</title>
 
     <!-- SEO -->
-    <meta name="description" content="Caretinhas artesanais exclusivas para motos. Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg de capacidade. Feitas à mão em Bacabeira, Maranhão." />
+    <meta name="description"
+        content="Caretinhas artesanais exclusivas para motos. Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg de capacidade. Feitas à mão em Bacabeira, Maranhão." />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="Reboques Prime" />
     <link rel="canonical" href="https://reboquesprime.com.br/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="REBOQUES PRIME — A Caretinha Feita para a Sua Moto" />
-    <meta property="og:description" content="Estrutura em Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg. Artesanal, exclusivo para motos. Bacabeira, MA." />
-    <meta property="og:image" content="assets/img/hero.jpg" />
-    <meta property="og:url" content="https://reboquesprime.com.br/" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Reboques Prime" />
+    <meta property="og:title" content="REBOQUES PRIME — A Caretinha Feita para a Sua Moto" />
+    <meta property="og:description"
+        content="Estrutura em Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg. Artesanal, exclusivo para motos." />
+    <meta property="og:image" content="https://reboquesprime.com.br/assets/img/hero.jpg" />
+    <meta property="og:url" content="https://reboquesprime.com.br/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="REBOQUES PRIME — A Caretinha Feita para a Sua Moto" />
+    <meta name="twitter:description"
+        content="Estrutura em Perfil U 2&quot; x 1/8, madeira Tatajuba, 350kg. Artesanal, exclusivo para motos." />
+    <meta name="twitter:image" content="https://reboquesprime.com.br/assets/img/hero.jpg" />
 
     <!-- Schema.org -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Reboques Prime","description":"Fabricante artesanal de carretinhas para motos.","telephone":"+55-98-99155-7039","address":{"@type":"PostalAddress","addressLocality":"Bacabeira","addressRegion":"MA","addressCountry":"BR"},"image":"assets/img/hero.jpg","priceRange":"R$ 3.500,00"}
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Reboques Prime",
+      "description": "Caretinhas artesanais exclusivas para motos, feitas à mão em Bacabeira, Maranhão.",
+      "url": "https://reboquesprime.com.br/",
+      "image": "https://reboquesprime.com.br/assets/img/hero.jpg",
+      "telephone": "+55-98-99155-7039",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bacabeira",
+        "addressRegion": "MA",
+        "addressCountry": "BR"
+      },
+      "priceRange": "R$ 3.500,00",
+      "sameAs": ["https://wa.me/5598991557039"]
+    }
     </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '919797997712910');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=919797997712910&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <link rel="preload" as="image" href="assets/img/hero.jpg" />
-
-    <!-- Fonts — uma única requisição -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
@@ -35,15 +81,10 @@
             theme: {
                 extend: {
                     colors: {
-                        "outline-variant": "#e3bfb4", "on-surface": "#1d1c17", "background": "#fef9f1",
-                        "outline": "#8e7067", "surface-container-lowest": "#ffffff",
-                        "surface-container-high": "#ece8e0", "surface-variant": "#e7e2da",
-                        "surface": "#fef9f1", "primary": "#ac3300", "on-primary": "#ffffff",
-                        "surface-dim": "#ded9d2", "surface-container": "#f2ede5",
-                        "surface-container-low": "#f8f3eb", "secondary": "#8e4e08",
-                        "on-primary-container": "#ffffff", "on-surface-variant": "#5a4139",
-                        "on-background": "#1d1c17", "primary-container": "#d4450c",
-                        "surface-container-highest": "#e7e2da",
+                        "primary": "#ac3300",
+                        "primary-container": "#d4450c",
+                        "secondary": "#c47a35",
+                        "on-surface-variant": "#a09480",
                     },
                     fontFamily: {
                         "headline": ["Bebas Neue", "sans-serif"],
@@ -55,283 +96,689 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: "Barlow", sans-serif; }
+
+        body {
+            font-family: "Barlow", sans-serif;
+            background: #0f0e0a;
+            color: #f0ebe3;
+        }
+
         .font-headline { font-family: "Bebas Neue", sans-serif; }
-        .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24; }
+
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: #ac3300;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            z-index: 9999;
+            transition: top 0.2s;
+            text-decoration: none;
+        }
+
+        .skip-link:focus { top: 1rem; }
+
+        #top-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(15, 14, 10, 0);
+            backdrop-filter: blur(0px);
+            transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid transparent;
+        }
+
+        #top-nav.scrolled {
+            background: rgba(15, 14, 10, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
 
         .grain-overlay {
-            pointer-events: none; position: fixed; inset: 0; z-index: 50; opacity: 0.03;
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            opacity: 0.04;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat; background-size: 128px;
+            background-repeat: repeat;
+            background-size: 128px;
+        }
+
+        .bg-dark-1 { background: #0f0e0a; }
+        .bg-dark-2 { background: #141210; }
+        .bg-dark-3 { background: #1a1815; }
+        .bg-dark-card-a { background: #1e1c18; }
+        .bg-dark-card-b { background: #242118; }
+
+        .dif-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .dif-item {
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.3s;
+        }
+
+        .dif-item:hover { background: rgba(172, 51, 0, 0.08); }
+
+        @media (max-width: 640px) {
+            .dif-grid { grid-template-columns: 1fr; }
         }
 
         #lightbox {
-            display: none; position: fixed; z-index: 1000; inset: 0;
-            background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.97);
+            align-items: center;
+            justify-content: center;
         }
-        #lightbox img { max-width: 85%; max-height: 80%; object-fit: contain; user-select: none; }
+
+        #lightbox img {
+            max-width: 85%;
+            max-height: 80%;
+            object-fit: contain;
+            user-select: none;
+        }
 
         .lb-nav {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,255,255,0.1); border: none; color: white;
-            font-size: 2.5rem; padding: 0.4rem 1rem; cursor: pointer;
-            transition: background 0.2s; font-family: "Bebas Neue", sans-serif; line-height: 1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: "Bebas Neue", sans-serif;
+            line-height: 1;
         }
-        .lb-nav:hover { background: rgba(172,51,0,0.7); }
+
+        .lb-nav:hover, .lb-nav:focus {
+            background: rgba(172, 51, 0, 0.8);
+            outline: none;
+        }
+
         .lb-nav.prev { left: 1.5rem; }
         .lb-nav.next { right: 1.5rem; }
 
-        .fade-up { animation: fadeUp 1s ease-out forwards; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
+        #lb-counter {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .fade-up { animation: fadeUp 1s ease-out forwards; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .heat-line {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ac3300, #d4450c, #ac3300, transparent);
+        }
+
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Formulário de captura */
+        .lead-input {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #f0ebe3;
+            font-family: "Barlow", sans-serif;
+            font-size: 1rem;
+            padding: 1rem 1.25rem;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .lead-input::placeholder { color: rgba(255,255,255,0.3); }
+
+        .lead-input:focus {
+            border-color: #c47a35;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .lead-input:invalid:not(:placeholder-shown) {
+            border-color: #ac3300;
+        }
+
+        /* Sucesso */
+        #form-success {
+            display: none;
+        }
+
+        #form-success.visible {
+            display: flex;
+        }
     </style>
 </head>
 
-<body class="bg-background text-on-surface antialiased">
+<body class="antialiased">
+    <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
     <div aria-hidden="true" class="grain-overlay"></div>
 
-    <!-- HERO -->
-    <header class="relative min-h-screen flex items-center justify-center bg-black py-16">
-        <div class="absolute inset-0 z-0">
-            <img alt="Caretinha artesanal Reboques Prime acoplada a uma moto"
-                class="w-full h-full object-cover opacity-70" src="assets/img/hero.jpg" />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/30 to-black/90"></div>
+    <!-- Navegação fixa -->
+    <nav id="top-nav" aria-label="Navegação principal">
+        <div class="w-full max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a href="#inicio"
+                class="font-headline text-xl text-white tracking-wider hover:text-secondary transition-colors">
+                REBOQUES <span class="text-secondary">PRIME</span>
+            </a>
+            <ul class="hidden md:flex items-center gap-8 font-headline text-sm tracking-[0.2em] text-white/60"
+                role="list">
+                <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
+                <li><a href="#specs" class="hover:text-white transition-colors">Especificações</a></li>
+                <li><a href="#diferenciais" class="hover:text-white transition-colors">Diferenciais</a></li>
+                <li><a href="#galeria" class="hover:text-white transition-colors">Galeria</a></li>
+                <li><a href="#orcamento" class="hover:text-white transition-colors">Orçamento</a></li>
+            </ul>
+            <a class="bg-primary hover:bg-primary-container transition-colors px-5 py-2 font-headline text-sm tracking-[0.2em] text-white hidden md:block"
+                href="#orcamento">
+                ORÇAMENTO
+            </a>
         </div>
-        <div class="relative z-10 w-full max-w-5xl px-8 md:px-12 text-center fade-up">
-            <div class="flex justify-center mb-6">
-                <span class="bg-[#D35400] text-white px-4 md:px-6 py-1.5 font-headline text-sm md:text-lg tracking-[0.2em] md:tracking-[0.4em] uppercase shadow-2xl">Exclusivo para Motos</span>
-            </div>
-            <h1 class="font-headline text-[2.8rem] leading-[1] md:text-7xl lg:text-8xl text-white md:leading-[0.9] mb-6 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] uppercase">
-                A CARETINHA FEITA<br class="hidden md:block" /> PARA A SUA MOTO
-            </h1>
-            <p class="text-[11px] md:text-lg lg:text-xl text-white/80 font-body max-w-2xl mx-auto mb-10 uppercase tracking-[0.15em] md:tracking-[0.3em] leading-relaxed drop-shadow-lg px-2">
-                Estrutura robusta em Perfil U 2" x 1/8, acabamento premium em Madeira Tatajuba, capacidade de carga real de 350kg.
-            </p>
-            <div class="flex flex-col items-center gap-6">
-                <div class="bg-black/40 backdrop-blur-md border border-white/10 px-8 py-5 md:px-12 md:py-6 shadow-2xl">
-                    <span class="block text-white/70 text-[10px] md:text-[11px] tracking-[0.3em] md:tracking-[0.5em] uppercase mb-1 font-headline">Investimento</span>
-                    <span class="text-3xl md:text-5xl lg:text-6xl font-headline text-white">R$ 3.500,00</span>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <header id="inicio"
+            class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center bg-[#0f0e0a] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img alt="Caretinha artesanal Reboques Prime - Mobile"
+                    class="block md:hidden w-full h-full object-cover opacity-40 object-center transition-opacity duration-1000"
+                    src="assets/img/gallery4.jpg" width="1080" height="1920" />
+                <img alt="Caretinha artesanal Reboques Prime - Desktop"
+                    class="hidden md:block w-full h-full object-cover opacity-40 object-[60%_center] transition-opacity duration-1000"
+                    src="assets/img/hero.jpg" width="1920" height="1080" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#0f0e0a] via-[#0f0e0a]/20 to-[#0f0e0a]/70 md:bg-gradient-to-b md:from-[#0f0e0a]/80 md:via-[#0f0e0a]/20 md:to-[#0f0e0a]">
                 </div>
-                <a class="bg-[#2ecc71] hover:bg-[#27ae60] transition-all transform hover:scale-105 px-8 py-4 md:px-10 md:py-5 text-white font-headline text-lg md:text-2xl flex items-center gap-3 md:gap-4 shadow-[0_20px_50px_rgba(46,204,113,0.3)] w-full md:w-auto justify-center"
-                    href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-                    target="_blank" rel="noopener noreferrer" aria-label="Solicitar orçamento via WhatsApp">
-                    <span class="material-symbols-outlined text-3xl md:text-4xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">chat</span>
-                    SOLICITAR AGORA
+            </div>
+
+            <div class="relative z-10 w-full max-w-5xl px-6 md:px-12 py-16 md:py-24 text-center fade-up">
+                <div class="flex justify-center mb-12">
+                    <span
+                        class="inline-flex items-center rounded-full bg-primary/20 border border-primary/30 px-4 py-1.5 text-xs md:text-sm font-headline tracking-[0.3em] text-white uppercase backdrop-blur-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary mr-2 animate-pulse"></span>
+                        Exclusivo para Motos
+                    </span>
+                </div>
+
+                <h1
+                    class="font-headline text-[3.2rem] leading-[0.95] md:text-7xl lg:text-9xl text-white mb-10 drop-shadow-[0_20px_20px_rgba(0,0,0,1)] uppercase tracking-tight">
+                    A CARETINHA FEITA<br /><span
+                        class="text-[#ac3300] drop-shadow-[0_2px_2px_rgba(255,255,255,0.1)]">PARA A SUA MOTO</span>
+                </h1>
+
+                <p
+                    class="text-sm md:text-lg lg:text-xl text-white/80 font-body max-w-2xl mx-auto mb-16 uppercase tracking-[0.1em] md:tracking-[0.2em] leading-relaxed px-4">
+                    Estrutura robusta em Perfil U 2" x 1/8, acabamento premium em Madeira Tatajuba, capacidade de carga
+                    real de 350kg.
+                </p>
+
+                <div class="flex flex-col items-center gap-12">
+                    <div
+                        class="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl px-10 py-6 md:px-16 md:py-8 shadow-2xl transition-all hover:bg-white/[0.05] hover:border-white/20">
+                        <span
+                            class="block text-white/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-3 font-headline">Por que escolher a Reboques Prime?</span>
+                        <div class="flex flex-col gap-2 text-white/80 font-body text-sm md:text-base text-left">
+                            <span>✦ Estrutura em aço Perfil U 2" × 1/8</span>
+                            <span>✦ Madeira Tatajuba — resistente e durável</span>
+                            <span>✦ 350kg de capacidade de carga</span>
+                            <span>✦ Feita à mão em Bacabeira, MA</span>
+                        </div>
+                    </div>
+
+                    <a class="group relative bg-[#2ecc71] hover:bg-[#27ae60] transition-all transform hover:scale-105 active:scale-95 px-8 py-5 md:px-12 md:py-6 text-white font-headline text-xl md:text-2xl flex items-center gap-4 shadow-[0_20px_50px_rgba(46,204,113,0.3)] w-full md:w-auto justify-center rounded-xl overflow-hidden"
+                        href="#orcamento" aria-label="Solicitar orçamento">
+                        <div
+                            class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                        <span class="material-symbols-outlined text-3xl md:text-4xl relative z-10" aria-hidden="true"
+                            style="font-variation-settings: 'FILL' 1;">request_quote</span>
+                        <span class="relative z-10">SOLICITAR ORÇAMENTO</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30 animate-bounce cursor-pointer hover:text-white transition-colors"
+                aria-hidden="true">
+                <a href="#specs" aria-label="Rolar para especificações">
+                    <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
                 </a>
             </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 animate-bounce" aria-hidden="true">
-            <span class="material-symbols-outlined text-2xl">keyboard_arrow_down</span>
-        </div>
-    </header>
+        </header>
 
-    <!-- FICHA TÉCNICA -->
-    <section class="pt-32 pb-16 px-10 md:px-24 bg-surface">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-headline text-5xl md:text-6xl text-primary mb-4">Especificações Técnicas</h2>
-                <div class="h-1 w-24 bg-secondary mx-auto"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-                <div class="bg-surface-container-low p-10 flex flex-col items-center text-center hover:bg-surface-container transition-colors reveal">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">straighten</span>
-                    <h3 class="font-headline text-2xl mb-2">Comprimento</h3>
-                    <p class="font-body text-lg text-on-surface-variant">0,90m</p>
-                </div>
-                <div class="bg-surface-container p-10 flex flex-col items-center text-center hover:bg-surface-container-high transition-colors reveal">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">width</span>
-                    <h3 class="font-headline text-2xl mb-2">Largura</h3>
-                    <p class="font-body text-lg text-on-surface-variant">1,00m</p>
-                </div>
-                <div class="bg-surface-container-low p-10 flex flex-col items-center text-center hover:bg-surface-container transition-colors reveal">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">height</span>
-                    <h3 class="font-headline text-2xl mb-2">Altura Laterais</h3>
-                    <p class="font-body text-lg text-on-surface-variant">0,30m</p>
-                </div>
-                <div class="bg-surface-container p-10 flex flex-col items-center text-center hover:bg-surface-container-high transition-colors reveal">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">weight</span>
-                    <h3 class="font-headline text-2xl mb-2">Capacidade</h3>
-                    <p class="font-body text-lg text-on-surface-variant">350 kg</p>
-                </div>
-                <div class="bg-surface-container-low p-10 flex flex-col items-center text-center hover:bg-surface-container transition-colors reveal">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">settings_input_component</span>
-                    <h3 class="font-headline text-2xl mb-2">Estrutura</h3>
-                    <p class="font-body text-lg text-on-surface-variant">Perfil U 2" x 1/8</p>
-                </div>
-                <div class="bg-surface-container p-10 flex flex-col items-center text-center hover:bg-surface-container-high transition-colors reveal">
-                    <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">motorcycle</span>
-                    <h3 class="font-headline text-2xl mb-2">Engate</h3>
-                    <p class="font-body text-lg text-on-surface-variant">Exclusivo para Motos</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="heat-line"></div>
 
-    <!-- GALERIA -->
-    <section class="pt-16 pb-32 px-10 md:px-24 bg-background" id="galeria">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-headline text-5xl md:text-6xl text-on-background mb-4 uppercase">Galeria de Fotos</h2>
-                <div class="h-1 w-24 bg-secondary mx-auto"></div>
+        <!-- ESPECIFICAÇÕES TÉCNICAS -->
+        <section id="specs" class="pt-32 pb-16 px-6 md:px-24 bg-dark-2">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-headline text-5xl md:text-6xl text-primary mb-4">Especificações Técnicas</h2>
+                    <div class="h-1 w-24 bg-secondary mx-auto"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+                    <div class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">straighten</span>
+                        <h3 class="font-headline text-2xl mb-2 text-white">Comprimento</h3>
+                        <p class="font-body text-lg text-on-surface-variant">0,90m</p>
+                    </div>
+                    <div class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">width</span>
+                        <h3 class="font-headline text-2xl mb-2 text-white">Largura</h3>
+                        <p class="font-body text-lg text-on-surface-variant">1,00m</p>
+                    </div>
+                    <div class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">height</span>
+                        <h3 class="font-headline text-2xl mb-2 text-white">Altura Laterais</h3>
+                        <p class="font-body text-lg text-on-surface-variant">0,30m</p>
+                    </div>
+                    <div class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">weight</span>
+                        <h3 class="font-headline text-2xl mb-2 text-white">Capacidade</h3>
+                        <p class="font-body text-lg text-on-surface-variant">350 kg</p>
+                    </div>
+                    <div class="bg-dark-card-a p-10 flex flex-col items-center text-center hover:bg-dark-card-b transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">settings_input_component</span>
+                        <h3 class="font-headline text-2xl mb-2 text-white">Estrutura</h3>
+                        <p class="font-body text-lg text-on-surface-variant">Perfil U 2" x 1/8</p>
+                    </div>
+                    <div class="bg-dark-card-b p-10 flex flex-col items-center text-center hover:bg-dark-card-a transition-colors reveal">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4" aria-hidden="true">motorcycle</span>
+                        <h3 class="font-headline text-2xl mb-2 text-white">Engate</h3>
+                        <p class="font-body text-lg text-on-surface-variant">Exclusivo para Motos</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <button class="gallery-item overflow-hidden relative group cursor-pointer shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary reveal"
-                    onclick="openLightbox(0)" aria-label="Ampliar: Vista traseira">
-                    <img alt="Vista traseira da caretinha" class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="assets/img/gallery1.jpg" loading="lazy" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8" aria-hidden="true">
-                        <p class="text-white font-headline text-lg tracking-widest">VISTA TRASEIRA</p>
-                    </div>
-                </button>
-                <button class="gallery-item overflow-hidden relative group cursor-pointer shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary reveal"
-                    onclick="openLightbox(1)" aria-label="Ampliar: Detalhes laterais">
-                    <img alt="Detalhes laterais da caretinha" class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="assets/img/gallery2.jpg" loading="lazy" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8" aria-hidden="true">
-                        <p class="text-white font-headline text-lg tracking-widest">DETALHES LATERAIS</p>
-                    </div>
-                </button>
-                <button class="gallery-item overflow-hidden relative group cursor-pointer shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary reveal"
-                    onclick="openLightbox(2)" aria-label="Ampliar: Estrutura completa">
-                    <img alt="Estrutura completa da caretinha" class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="assets/img/gallery3.jpg" loading="lazy" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8" aria-hidden="true">
-                        <p class="text-white font-headline text-lg tracking-widest">ESTRUTURA COMPLETA</p>
-                    </div>
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTATO -->
-    <section class="bg-[#111111] py-32 px-10 md:px-24 text-white text-center">
-        <div class="max-w-4xl mx-auto reveal">
-            <h2 class="font-headline text-6xl md:text-7xl mb-6">Ficou Interessado?</h2>
-            <p class="font-body text-xl text-stone-400 mb-10 uppercase tracking-widest leading-relaxed">
-                Entre em contato diretamente pelo WhatsApp para garantir o seu reboque artesanal personalizado.
-            </p>
-            <div class="mb-12">
-                <span class="block text-secondary text-sm tracking-widest uppercase mb-2">Telefone Direto</span>
-                <p class="text-4xl md:text-5xl font-headline tracking-tighter">(98) 99155-7039</p>
+        <div class="heat-line"></div>
+
+        <!-- DIFERENCIAIS -->
+        <section id="diferenciais" class="py-24 px-6 md:px-24 bg-dark-3">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-headline text-5xl md:text-6xl text-white mb-4 uppercase">Por que a Prime?</h2>
+                    <div class="h-1 w-24 bg-secondary mx-auto"></div>
+                </div>
+                <div class="dif-grid reveal">
+                    <div class="dif-item">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">handyman</span>
+                        <h3 class="font-headline text-2xl text-white mb-2">100% Artesanal</h3>
+                        <p class="font-body text-sm text-stone-400 leading-relaxed">Cada peça é construída à mão, com
+                            atenção em cada detalhe — do corte do perfil ao acabamento final.</p>
+                    </div>
+                    <div class="dif-item">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">forest</span>
+                        <h3 class="font-headline text-2xl text-white mb-2">Madeira Tatajuba</h3>
+                        <p class="font-body text-sm text-stone-400 leading-relaxed">Piso em Tatajuba, madeira nativa
+                            resistente à umidade, impacto e carga contínua.</p>
+                    </div>
+                    <div class="dif-item">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">fitness_center</span>
+                        <h3 class="font-headline text-2xl text-white mb-2">350kg de Capacidade</h3>
+                        <p class="font-body text-sm text-stone-400 leading-relaxed">Estrutura em Perfil U 2" x 1/8
+                            dimensionada para cargas reais, não nominais.</p>
+                    </div>
+                    <div class="dif-item">
+                        <span class="material-symbols-outlined text-4xl text-secondary mb-4 block" aria-hidden="true">build_circle</span>
+                        <h3 class="font-headline text-2xl text-white mb-2">Engate Exclusivo</h3>
+                        <p class="font-body text-sm text-stone-400 leading-relaxed">Desenvolvido especificamente para
+                            motocicletas — seguro, estável e de fácil acoplamento.</p>
+                    </div>
+                </div>
             </div>
-            <a class="bg-[#25D366] hover:bg-[#1fb356] transition-all px-12 py-6 text-white font-headline text-3xl inline-flex items-center gap-4"
-                href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-                target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
-                <span class="material-symbols-outlined text-4xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">chat</span>
-                CONVERSAR NO WHATSAPP
-            </a>
-            <div class="mt-16 text-stone-500 flex flex-col items-center gap-2">
-                <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-                <p class="font-body uppercase tracking-widest text-sm">Bacabeira, Maranhão — Brasil</p>
+        </section>
+
+        <div class="heat-line"></div>
+
+        <!-- GALERIA -->
+        <section id="galeria" class="pt-16 pb-32 px-6 md:px-24 bg-dark-1">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-headline text-5xl md:text-6xl text-white mb-4 uppercase">Galeria de Fotos</h2>
+                    <div class="h-1 w-24 bg-secondary mx-auto"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <button
+                        class="gallery-btn overflow-hidden relative group cursor-pointer shadow-[0_8px_32px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-primary reveal"
+                        data-index="0" aria-label="Ampliar: Vista traseira">
+                        <img alt="Vista traseira da caretinha"
+                            class="gallery-img transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100"
+                            src="assets/img/gallery1.jpg" loading="lazy" width="800" height="1067" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 flex items-end p-8"
+                            aria-hidden="true">
+                            <p class="text-white font-headline text-lg tracking-widest">VISTA TRASEIRA</p>
+                        </div>
+                    </button>
+                    <button
+                        class="gallery-btn overflow-hidden relative group cursor-pointer shadow-[0_8px_32px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-primary reveal"
+                        data-index="1" aria-label="Ampliar: Detalhes laterais">
+                        <img alt="Detalhes laterais da caretinha"
+                            class="gallery-img transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100"
+                            src="assets/img/gallery2.jpg" loading="lazy" width="800" height="1067" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 flex items-end p-8"
+                            aria-hidden="true">
+                            <p class="text-white font-headline text-lg tracking-widest">DETALHES LATERAIS</p>
+                        </div>
+                    </button>
+                    <button
+                        class="gallery-btn overflow-hidden relative group cursor-pointer shadow-[0_8px_32px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-primary reveal"
+                        data-index="2" aria-label="Ampliar: Estrutura completa">
+                        <img alt="Estrutura completa da caretinha"
+                            class="gallery-img transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100"
+                            src="assets/img/gallery3.jpg" loading="lazy" width="800" height="1067" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 flex items-end p-8"
+                            aria-hidden="true">
+                            <p class="text-white font-headline text-lg tracking-widest">ESTRUTURA COMPLETA</p>
+                        </div>
+                    </button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <div class="heat-line"></div>
+
+        <!-- FORMULÁRIO DE CAPTURA DE LEAD -->
+        <section id="orcamento" class="py-32 px-6 md:px-24 bg-dark-2">
+            <div class="max-w-2xl mx-auto reveal">
+                <div class="text-center mb-14">
+                    <h2 class="font-headline text-5xl md:text-7xl text-white mb-4 uppercase">Solicite seu<br /><span class="text-primary">Orçamento</span></h2>
+                    <p class="font-body text-stone-400 text-lg leading-relaxed">
+                        Preencha abaixo e entraremos em contato via WhatsApp em instantes.
+                    </p>
+                </div>
+
+                <!-- Formulário -->
+                <form id="lead-form" novalidate class="flex flex-col gap-4">
+                    <div>
+                        <label for="lead-nome" class="block text-xs font-headline tracking-[0.3em] text-stone-400 uppercase mb-2">Seu Nome</label>
+                        <input
+                            id="lead-nome"
+                            type="text"
+                            placeholder="Ex: João Silva"
+                            required
+                            minlength="3"
+                            autocomplete="name"
+                            class="lead-input" />
+                    </div>
+                    <div>
+                        <label for="lead-telefone" class="block text-xs font-headline tracking-[0.3em] text-stone-400 uppercase mb-2">Seu WhatsApp</label>
+                        <input
+                            id="lead-telefone"
+                            type="tel"
+                            placeholder="(98) 99999-9999"
+                            required
+                            maxlength="15"
+                            autocomplete="tel"
+                            class="lead-input" />
+                    </div>
+                    <p id="form-error" class="text-primary font-body text-sm hidden">Por favor, preencha seu nome e WhatsApp corretamente.</p>
+                    <button
+                        type="submit"
+                        class="mt-2 bg-[#25D366] hover:bg-[#1fb356] transition-all px-8 py-5 text-white font-headline text-2xl tracking-[0.15em] flex items-center justify-center gap-3 w-full">
+                        <span class="material-symbols-outlined text-3xl" aria-hidden="true"
+                            style="font-variation-settings: 'FILL' 1;">chat</span>
+                        ENVIAR VIA WHATSAPP
+                    </button>
+                </form>
+
+                <!-- Mensagem de sucesso -->
+                <div id="form-success" class="flex-col items-center text-center gap-6 py-8">
+                    <span class="material-symbols-outlined text-6xl text-[#25D366]"
+                        style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    <div>
+                        <p class="font-headline text-3xl text-white mb-2">Mensagem Enviada!</p>
+                        <p class="font-body text-stone-400">Abrimos o WhatsApp com seus dados. Responderemos em breve.</p>
+                    </div>
+                </div>
+
+                <p class="text-center text-stone-600 text-xs uppercase tracking-widest mt-8 font-body">
+                    Seus dados são usados apenas para retorno do orçamento.
+                </p>
+            </div>
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#0a0a0a] py-24 px-10 md:px-24 border-t border-white/5">
+    <footer class="bg-[#0a0a0a] py-24 px-6 md:px-24 border-t border-white/5">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
             <div class="space-y-6">
-                <h4 class="font-headline text-4xl text-white tracking-wider uppercase">REBOQUES <span class="text-secondary">PRIME</span></h4>
-                <p class="text-stone-500 font-body text-sm leading-relaxed uppercase tracking-tighter">
-                    Especialistas em carretinhas artesanais de alto padrão para motociclistas exigentes.
-                </p>
-                <a class="w-12 h-12 border border-white/10 flex items-center justify-center hover:bg-secondary transition-all hover:scale-110 inline-flex"
-                    href="https://wa.me/5598991557039" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <span class="material-symbols-outlined text-white opacity-70" aria-hidden="true">chat</span>
-                </a>
+                <h4 class="font-headline text-4xl text-white tracking-wider uppercase">REBOQUES <span
+                        class="text-secondary">PRIME</span></h4>
+                <p class="text-stone-500 font-body text-sm leading-relaxed uppercase tracking-tighter">Especialistas em
+                    carretinhas artesanais de alto padrão para motociclistas exigentes.</p>
             </div>
             <div class="space-y-6">
-                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Navegação</span>
+                <span class="text-stone-400 text-xs uppercase tracking-widest font-bold">Navegação</span>
                 <ul class="space-y-4 font-body text-sm text-stone-400 uppercase tracking-widest">
-                    <li><a class="hover:text-secondary transition-colors" href="#">Início</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#inicio">Início</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#specs">Especificações</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#diferenciais">Diferenciais</a></li>
                     <li><a class="hover:text-secondary transition-colors" href="#galeria">Galeria</a></li>
-                    <li><a class="hover:text-secondary transition-colors" href="https://wa.me/5598991557039?text=Quero%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#orcamento">Solicitar Orçamento</a></li>
                 </ul>
             </div>
             <div class="space-y-6">
-                <span class="text-stone-500 text-xs uppercase tracking-widest font-bold">Contato Direto</span>
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">phone_iphone</span>
-                    <div>
-                        <p class="text-white font-headline text-2xl tracking-tighter">(98) 99155-7039</p>
-                        <p class="text-stone-600 text-[10px] uppercase font-bold tracking-widest">WhatsApp / Celular</p>
-                    </div>
-                </div>
                 <div class="flex items-center gap-4">
                     <span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">location_on</span>
                     <div>
                         <p class="text-stone-400 font-body text-sm">Bacabeira, Maranhão — Brasil</p>
-                        <p class="text-stone-600 text-[10px] uppercase font-bold tracking-widest">Atendimento Regional</p>
+                        <p class="text-stone-500 text-[10px] uppercase font-bold tracking-widest">Atendimento Regional</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-stone-700 uppercase tracking-[0.3em]">
-            <p>© 2026 REBOQUES PRIME. TODOS OS DIREITOS RESERVADOS.</p>
+        <div
+            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-stone-600 uppercase tracking-[0.3em]">
+            <p>© <span id="footer-year"></span> REBOQUES PRIME. TODOS OS DIREITOS RESERVADOS.</p>
             <p>ARTESANALMENTE FEITO NO MARANHÃO</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a class="fixed bottom-8 right-8 bg-[#25D366] p-4 text-white z-40 shadow-[0_30px_60px_-15px_rgba(172,51,0,0.4)] hover:scale-110 transition-transform"
-        href="https://wa.me/5598991557039?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20a%20caretinha."
-        target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-        <span class="material-symbols-outlined text-4xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">chat</span>
-    </a>
-
     <!-- Lightbox -->
-    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto" onclick="handleLbClick(event)">
-        <button class="lb-nav prev" onclick="navLb(-1)" aria-label="Foto anterior">&#8249;</button>
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto">
+        <button class="lb-nav prev" id="lb-prev" aria-label="Foto anterior">&#8249;</button>
         <img alt="" id="lightbox-img" src="" />
-        <button class="lb-nav next" onclick="navLb(1)" aria-label="Próxima foto">&#8250;</button>
-        <button class="absolute top-6 right-6 text-white text-5xl font-headline bg-transparent border-none cursor-pointer hover:text-primary transition-colors leading-none"
-            onclick="closeLb()" aria-label="Fechar">×</button>
+        <button class="lb-nav next" id="lb-next" aria-label="Próxima foto">&#8250;</button>
+        <div id="lb-counter" aria-live="polite"></div>
+        <button
+            class="absolute top-6 right-6 text-white text-5xl font-headline bg-transparent border-none cursor-pointer hover:text-primary transition-colors leading-none"
+            id="lb-close" aria-label="Fechar">×</button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        const { createClient } = supabase;
+        const db = createClient(
+            'https://ilyaaszgkckmrqsgmutp.supabase.co',
+            'sb_publishable_v-FSxcVAZ5-CZLyL2EMJoA_UexN4nnI'
+        );
+
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Nav scroll effect
+        const topNav = document.getElementById('top-nav');
+        window.addEventListener('scroll', () => {
+            topNav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Lightbox
         const imgs = [
             { src: 'assets/img/gallery1.jpg', alt: 'Vista traseira da caretinha' },
             { src: 'assets/img/gallery2.jpg', alt: 'Detalhes laterais da caretinha' },
             { src: 'assets/img/gallery3.jpg', alt: 'Estrutura completa da caretinha' },
         ];
         let cur = 0;
+        let lastFocused = null;
+
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbCount = document.getElementById('lb-counter');
+        const lbClose = document.getElementById('lb-close');
+        const lbPrev = document.getElementById('lb-prev');
+        const lbNext = document.getElementById('lb-next');
+        const focusEls = [lbPrev, lbNext, lbClose];
+
+        function updateLb() {
+            lbImg.src = imgs[cur].src;
+            lbImg.alt = imgs[cur].alt;
+            lbCount.textContent = `${String(cur + 1).padStart(2, '0')} / ${String(imgs.length).padStart(2, '0')}`;
+        }
 
         function openLightbox(i) {
             cur = i;
-            const lb = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = imgs[cur].src; img.alt = imgs[cur].alt;
+            lastFocused = document.activeElement;
+            updateLb();
             lb.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            lbClose.focus();
         }
+
         function closeLb() {
-            document.getElementById('lightbox').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            lb.style.display = 'none';
+            document.body.style.overflow = '';
+            if (lastFocused) lastFocused.focus();
         }
+
         function navLb(d) {
             cur = (cur + d + imgs.length) % imgs.length;
-            const img = document.getElementById('lightbox-img');
-            img.src = imgs[cur].src; img.alt = imgs[cur].alt;
+            updateLb();
         }
-        function handleLbClick(e) {
-            if (e.target === document.getElementById('lightbox')) closeLb();
-        }
-        document.addEventListener('keydown', e => {
-            if (document.getElementById('lightbox').style.display !== 'flex') return;
-            if (e.key === 'Escape') closeLb();
-            if (e.key === 'ArrowRight') navLb(1);
-            if (e.key === 'ArrowLeft') navLb(-1);
+
+        lb.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeLb(); return; }
+            if (e.key === 'ArrowRight') { navLb(1); return; }
+            if (e.key === 'ArrowLeft') { navLb(-1); return; }
+            if (e.key === 'Tab') {
+                const first = focusEls[0];
+                const last = focusEls[focusEls.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault(); last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault(); first.focus();
+                }
+            }
         });
 
+        lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+        lbClose.addEventListener('click', closeLb);
+        lbPrev.addEventListener('click', () => navLb(-1));
+        lbNext.addEventListener('click', () => navLb(1));
+
+        document.querySelectorAll('.gallery-btn').forEach(btn => {
+            btn.addEventListener('click', () => openLightbox(Number(btn.dataset.index)));
+        });
+
+        // Scroll reveal
         const obs = new IntersectionObserver(entries => {
-            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); } });
+            entries.forEach(en => {
+                if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); }
+            });
         }, { threshold: 0.15 });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Meta Pixel: ViewContent quando seção de specs fica visível
+        const specsSection = document.getElementById('specs');
+        const specsObs = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (en.isIntersecting) {
+                    fbq('track', 'ViewContent');
+                    specsObs.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        if (specsSection) specsObs.observe(specsSection);
+
+        // Máscara de telefone
+        const telInput = document.getElementById('lead-telefone');
+        telInput.addEventListener('input', () => {
+            let v = telInput.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length > 6) {
+                v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+            } else if (v.length > 2) {
+                v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+            } else if (v.length > 0) {
+                v = `(${v}`;
+            }
+            telInput.value = v;
+        });
+
+        // Formulário de captura de lead
+        const leadForm = document.getElementById('lead-form');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+
+        leadForm.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            const nome = document.getElementById('lead-nome').value.trim();
+            const telefone = document.getElementById('lead-telefone').value.trim();
+            const telLimpo = telefone.replace(/\D/g, '');
+
+            if (nome.length < 3 || telLimpo.length < 10) {
+                formError.classList.remove('hidden');
+                return;
+            }
+
+            formError.classList.add('hidden');
+
+            // Salva lead no Supabase
+            await db.from('leads').insert({ nome, telefone });
+
+            // Dispara evento Lead no Meta Pixel
+            fbq('track', 'Lead', { content_name: 'Formulário Orçamento' });
+
+            // Mostra mensagem de sucesso
+            leadForm.style.display = 'none';
+            formSuccess.classList.add('visible');
+        });
     </script>
 </body>
+
 </html>
