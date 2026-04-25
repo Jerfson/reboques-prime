@@ -16,3 +16,4 @@ yarn-error.log*
 # Temporários
 *.log
 .gemini/
+index8.html
